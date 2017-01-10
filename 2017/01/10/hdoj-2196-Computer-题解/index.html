@@ -84,12 +84,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="学海泛舟">
-<meta property="og:url" content="http://mysteryofsphinx.github.io/index.html">
+<meta name="description" content="原题传送门
+题目大意给定一颗n个结点的树，求出每个结点到离它最远的点的距离
+分析虽然每条边都有权值，但其本质并没有变化。这个问题与求树的直径基本相似。很容易想清楚，树上任意一个结点的最远点必然是树的直径的两个端点中的一个。那么，这个问题就只需要三次dfs就能解决了。第一个dfs，找到其中一个端点。第二个dfs，以找到的一个端点为起点，找到另一个，并且顺便更新所有点到起点的距离。第三个dfs，以另一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hdoj 2196 Computer 题解">
+<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/01/10/hdoj-2196-Computer-题解/index.html">
 <meta property="og:site_name" content="学海泛舟">
+<meta property="og:description" content="原题传送门
+题目大意给定一颗n个结点的树，求出每个结点到离它最远的点的距离
+分析虽然每条边都有权值，但其本质并没有变化。这个问题与求树的直径基本相似。很容易想清楚，树上任意一个结点的最远点必然是树的直径的两个端点中的一个。那么，这个问题就只需要三次dfs就能解决了。第一个dfs，找到其中一个端点。第二个dfs，以找到的一个端点为起点，找到另一个，并且顺便更新所有点到起点的距离。第三个dfs，以另一">
+<meta property="og:updated_time" content="2017-01-10T06:26:40.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学海泛舟">
+<meta name="twitter:title" content="hdoj 2196 Computer 题解">
+<meta name="twitter:description" content="原题传送门
+题目大意给定一颗n个结点的树，求出每个结点到离它最远的点的距离
+分析虽然每条边都有权值，但其本质并没有变化。这个问题与求树的直径基本相似。很容易想清楚，树上任意一个结点的最远点必然是树的直径的两个端点中的一个。那么，这个问题就只需要三次dfs就能解决了。第一个dfs，找到其中一个端点。第二个dfs，以找到的一个端点为起点，找到另一个，并且顺便更新所有点到起点的距离。第三个dfs，以另一">
 
 
 
@@ -117,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://mysteryofsphinx.github.io/"/>
+  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/01/10/hdoj-2196-Computer-题解/"/>
 
 
 
 
 
-  <title> 学海泛舟 </title>
+  <title> hdoj 2196 Computer 题解 | 学海泛舟 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,9 +154,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +235,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -262,10 +270,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/01/10/hdoj-2196-Computer-题解/" itemprop="url">
-                  hdoj 2196 Computer 题解
-                </a>
+                hdoj 2196 Computer 题解
               
             
           </h1>
@@ -316,22 +321,24 @@
       
 
       
-        
-          
-            <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2196" target="_blank" rel="external">传送门</a></p>
+        <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2196" target="_blank" rel="external">传送门</a></p>
 <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>给定一颗n个结点的树，求出每个结点到离它最远的点的距离</p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>虽然每条边都有权值，但其本质并没有变化。<br>这个问题与求树的直径基本相似。<br>很容易想清楚，树上任意一个结点的最远点必然是树的直径的两个端点中的一个。<br>那么，这个问题就只需要三次dfs就能解决了。<br>第一个dfs，找到其中一个端点。<br>第二个dfs，以找到的一个端点为起点，找到另一个，并且顺便更新所有点到起点的距离。<br>第三个dfs，以另一个端点为起点，更新所有点的最远距离。</p>
 <h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">10010</span>;</div><div class="line"><span class="keyword">struct</span> Edge</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> to,next,w;</div><div class="line">&#125;edge[maxn&lt;&lt;<span class="number">1</span>];</div><div class="line"><span class="keyword">int</span> head[maxn];</div><div class="line"><span class="keyword">int</span> dist[maxn];</div><div class="line"><span class="keyword">int</span> tot;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span></div><div class="line">&#123;</div><div class="line">    edge[tot].to=v;</div><div class="line">    edge[tot].w=w;</div><div class="line">    edge[tot].next=head[u];</div><div class="line">    head[u]=tot++;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> flag;</div><div class="line"><span class="keyword">int</span> tdis;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> root,<span class="keyword">int</span> pre,<span class="keyword">int</span> dis)</span></span></div><div class="line">&#123;</div><div class="line">    dist[root]=max(dist[root],dis);</div><div class="line">    <span class="keyword">if</span>(dis&gt;tdis)</div><div class="line">    &#123;</div><div class="line">        flag=root;</div><div class="line">        tdis=dis;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[root];~i;i=edge[i].next)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> v=edge[i].to;</div><div class="line">        <span class="keyword">if</span>(v==pre) <span class="keyword">continue</span>;</div><div class="line">        dfs(v,root,dis+edge[i].w);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    tdis=<span class="number">0</span>;</div><div class="line">    dfs(flag,<span class="number">-1</span>,<span class="number">0</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)!=EOF)</div><div class="line">    &#123;</div><div class="line">        tot=<span class="number">0</span>;</div><div class="line">        <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span> head);</div><div class="line">        <span class="built_in">memset</span>(dist,<span class="number">0</span>,<span class="keyword">sizeof</span> dist);</div><div class="line">        <span class="keyword">int</span> v,len;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;++i)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;v,&amp;len);</div><div class="line">            addedge(i,v,len);</div><div class="line">            addedge(v,i,len);</div><div class="line">        &#125;</div><div class="line">        flag=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;++i)</div><div class="line">        &#123;</div><div class="line">            solve();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dist[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -340,282 +347,34 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/09/my-first-passage/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LeeHolmes">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/圣诞贞德.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="学海泛舟">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/01/09/my-first-passage/" rel="next" title="my first passage">
+                <i class="fa fa-chevron-left"></i> my first passage
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2017/01/09/my-first-passage/" itemprop="url">
-                  my first passage
-                </a>
-              
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-09T15:06:34+08:00">
-                2017-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="试水"><a href="#试水" class="headerlink" title="试水"></a>试水</h2><hr>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
-<li>无序</li>
-<li>无序</li>
-<li>无序</li>
-</ul>
-<ol>
-<li>有序</li>
-<li>有序</li>
-<li>有序</li>
-</ol>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><blockquote>
-<p>苟利国家生死以</p>
-</blockquote>
-<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p><a href="http://mysteryofsphinx.github.io">Myblog</a></p>
-<h3 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h3><p><strong> 粗粗粗 </strong></p>
-<p><em> 脉动 </em></p>
-<h3 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h3><p><code>cout&lt;&lt;&quot;HEllo World&quot;&lt;&lt;endl;</code></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/08/hello-world/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LeeHolmes">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/圣诞贞德.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="学海泛舟">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/08/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-08T23:49:08+08:00">
-                2017-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
           
           </div>
@@ -623,6 +382,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -642,8 +405,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/圣诞贞德.jpg"
@@ -685,6 +457,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原题"><span class="nav-number">1.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目大意"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考代码"><span class="nav-number">4.</span> <span class="nav-text">参考代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -791,6 +579,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -822,6 +614,10 @@
 
   
 
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
   
 
 
