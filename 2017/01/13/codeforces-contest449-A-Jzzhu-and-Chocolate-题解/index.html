@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="codeforces,math," />
 
 
 
@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="原题传送门
+题目大意给一块n*m的巧克力，要切k刀（只能沿个分割线切，即横着切或竖着切），问切完后，最小的那块的最大面积是多少
+分析为使最小的面积最大，无论在行还是列，我们都应该尽量等分。那么，最小面积的表达式就不难列出了，area=(n/x)(m/y)（这里的除法都是地板除），其中x表示被分成了x行，y表示被分成了y列，剩下的问题是如何求出面积的最大值。基于x+y=k+2这个等式，我们不难发现，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/01/08/hello-world/index.html">
+<meta property="og:title" content="codeforces contest449 A Jzzhu and Chocolate 题解">
+<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/index.html">
 <meta property="og:site_name" content="学海泛舟">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2017-01-08T15:49:08.864Z">
+<meta property="og:description" content="原题传送门
+题目大意给一块n*m的巧克力，要切k刀（只能沿个分割线切，即横着切或竖着切），问切完后，最小的那块的最大面积是多少
+分析为使最小的面积最大，无论在行还是列，我们都应该尽量等分。那么，最小面积的表达式就不难列出了，area=(n/x)(m/y)（这里的除法都是地板除），其中x表示被分成了x行，y表示被分成了y列，剩下的问题是如何求出面积的最大值。基于x+y=k+2这个等式，我们不难发现，">
+<meta property="og:updated_time" content="2017-01-13T15:07:01.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="codeforces contest449 A Jzzhu and Chocolate 题解">
+<meta name="twitter:description" content="原题传送门
+题目大意给一块n*m的巧克力，要切k刀（只能沿个分割线切，即横着切或竖着切），问切完后，最小的那块的最大面积是多少
+分析为使最小的面积最大，无论在行还是列，我们都应该尽量等分。那么，最小面积的表达式就不难列出了，area=(n/x)(m/y)（这里的除法都是地板除），其中x表示被分成了x行，y表示被分成了y列，剩下的问题是如何求出面积的最大值。基于x+y=k+2这个等式，我们不难发现，">
 
 
 
@@ -124,13 +127,13 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/01/08/hello-world/"/>
+  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/"/>
 
 
 
 
 
-  <title> Hello World | 学海泛舟 </title>
+  <title> codeforces contest449 A Jzzhu and Chocolate 题解 | 学海泛舟 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +256,7 @@ Quick">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/08/hello-world/">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="LeeHolmes">
@@ -277,7 +280,7 @@ Quick">
             
             
               
-                Hello World
+                codeforces contest449 A Jzzhu and Chocolate 题解
               
             
           </h1>
@@ -292,8 +295,8 @@ Quick">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-08T23:49:08+08:00">
-                2017-01-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-13T22:29:47+08:00">
+                2017-01-13
               </time>
             
 
@@ -303,6 +306,28 @@ Quick">
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM题解/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM题解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -311,8 +336,8 @@ Quick">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/08/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/08/hello-world/" itemprop="commentCount"></span>
+                <a href="/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -338,16 +363,10 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://codeforces.com/contest/449/problem/A" target="_blank" rel="external">传送门</a></p>
+<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>给一块n*m的巧克力，要切k刀（只能沿个分割线切，即横着切或竖着切），问切完后，最小的那块的最大面积是多少</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>为使最小的面积最大，无论在行还是列，我们都应该尽量等分。<br>那么，最小面积的表达式就不难列出了，area=(n/x)<em>(m/y)（这里的除法都是地板除），其中x表示被分成了x行，y表示被分成了y列，剩下的问题是如何求出面积的最大值。<br>基于x+y=k+2这个等式，我们不难发现，倘若n/x（m/y）固定时，只要使x（y）尽可能大，那么area就会取到当前的最大值。<br>那么我们就先枚举n/x的值，x的取值范围是[1,n]，n/x的值的个数一定是小于2</em>sqrt(n)，所以枚举这个想法在时间复杂度是可行的。然后我们再枚举m/y的值，不断更新area的值，最后就能得到最小的最大面积了。</p>
+<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	LL n,m,k;</div><div class="line">	LL ans=<span class="number">0</span>;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%I64d %I64d %I64d"</span>,&amp;n,&amp;m,&amp;k);</div><div class="line">	<span class="keyword">if</span>(n+m&lt;k+<span class="number">2</span>) &#123;</div><div class="line">		<span class="built_in">puts</span>(<span class="string">"-1"</span>);</div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n/i&amp;&amp;i&lt;k+<span class="number">2</span>;i++)&#123;</div><div class="line">		ans=max(ans,(n/i)*(m/(k+<span class="number">2</span>-i)));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(i=n/i;i&gt;=<span class="number">1</span>&amp;&amp;n/i&lt;k+<span class="number">2</span>;i--)&#123;</div><div class="line">		ans=max(ans,i*(m/(k+<span class="number">2</span>-n/i)));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=m/i&amp;&amp;i&lt;k+<span class="number">2</span>;i++)&#123;</div><div class="line">		ans=max(ans,(m/i)*(n/(k+<span class="number">2</span>-i)));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(i=m/i;i&gt;=<span class="number">1</span>&amp;&amp;m/i&lt;k+<span class="number">2</span>;i--)&#123;</div><div class="line">		ans=max(ans,i*(n/(k+<span class="number">2</span>-m/i)));</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -368,20 +387,28 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/codeforces/" rel="tag"># codeforces</a>
+          
+            <a href="/tags/math/" rel="tag"># math</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/11/UVa-1220-Party-at-Hali-Bula-题解/" rel="next" title="UVa 1220 Party at Hali-Bula 题解">
+                <i class="fa fa-chevron-left"></i> UVa 1220 Party at Hali-Bula 题解
+              </a>
             
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/09/my-first-passage/" rel="prev" title="my first passage">
-                my first passage <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -407,8 +434,8 @@ Quick">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/08/hello-world/"
-           data-title="Hello World" data-url="http://mysteryofsphinx.github.io/2017/01/08/hello-world/">
+      <div class="ds-thread" data-thread-key="2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/"
+           data-title="codeforces contest449 A Jzzhu and Chocolate 题解" data-url="http://mysteryofsphinx.github.io/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/">
       </div>
     
   </div>
@@ -526,7 +553,7 @@ Quick">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原题"><span class="nav-number">1.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目大意"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考代码"><span class="nav-number">4.</span> <span class="nav-text">参考代码</span></a></li></ol></div>
             
 
           </div>
