@@ -94,7 +94,7 @@
 <meta property="og:description" content="现代计算机存储和处理的信息都是二值信号，以特定的方式组合二值信号，就能表示有限集合的任意元素。这一章主要研究的就是计算机中的数字表示，即无符号编码、补码编码和浮点数编码。
 2.1 信息存储大多数计算机用字节（8位的块）作为最小的可寻址的内存单位。每个程序对象，乃至程序本身都是一个字节序列
 2.1.1 十六进制表示法对于描述位模式而言，常用十六进制来取代过于冗长的二进制表示法，在十六进制下，一个字节">
-<meta property="og:updated_time" content="2017-01-26T08:40:47.532Z">
+<meta property="og:updated_time" content="2017-01-26T09:30:03.743Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第2章 信息的表示和处理（一）">
 <meta name="twitter:description" content="现代计算机存储和处理的信息都是二值信号，以特定的方式组合二值信号，就能表示有限集合的任意元素。这一章主要研究的就是计算机中的数字表示，即无符号编码、补码编码和浮点数编码。
@@ -365,7 +365,7 @@
       
         <p>现代计算机存储和处理的信息都是二值信号，以特定的方式组合二值信号，就能表示有限集合的任意元素。这一章主要研究的就是计算机中的数字表示，即无符号编码、补码编码和浮点数编码。</p>
 <h3 id="2-1-信息存储"><a href="#2-1-信息存储" class="headerlink" title="2.1 信息存储"></a>2.1 信息存储</h3><p>大多数计算机用字节（8位的块）作为最小的可寻址的内存单位。<br>每个程序对象，乃至程序本身都是一个字节序列</p>
-<h4 id="2-1-1-十六进制表示法"><a href="#2-1-1-十六进制表示法" class="headerlink" title="2.1.1 十六进制表示法"></a>2.1.1 十六进制表示法</h4><p>对于描述位模式而言，常用十六进制来取代过于冗长的二进制表示法，在十六进制下，一个字节的值域为 $00<em>{16}$ ~ $FF</em>{16}$ </p>
+<h4 id="2-1-1-十六进制表示法"><a href="#2-1-1-十六进制表示法" class="headerlink" title="2.1.1 十六进制表示法"></a>2.1.1 十六进制表示法</h4><p>对于描述位模式而言，常用十六进制来取代过于冗长的二进制表示法，在十六进制下，一个字节的值域为 $00_{16}$ ~ $FF_{16}$ </p>
 <h4 id="2-1-2-字数据大小"><a href="#2-1-2-字数据大小" class="headerlink" title="2.1.2 字数据大小"></a>2.1.2 字数据大小</h4><p>字长，指明了指针数据的标称大小，决定了虚拟地址空间的大小。<br>对于字长为$w$位的机器而言，虚拟地址的范围为0 ~ $2^w-1$，最多访问$2^w$歌字节。</p>
 <h4 id="2-1-3-寻址和字节顺序"><a href="#2-1-3-寻址和字节顺序" class="headerlink" title="2.1.3 寻址和字节顺序"></a>2.1.3 寻址和字节顺序</h4><p>对象的地址位为所使用字节中最小的地址。<br>排列表示一个对象的字节有两个通用的规则，即小端法和大端法。</p>
 <ul>
@@ -411,13 +411,13 @@
 </ul>
 <h3 id="2-2-整数表示"><a href="#2-2-整数表示" class="headerlink" title="2.2 整数表示"></a>2.2 整数表示</h3><p>本节介绍用位编码整数的两种方式</p>
 <h4 id="2-2-1-整数数据类型"><a href="#2-2-1-整数数据类型" class="headerlink" title="2.2.1 整数数据类型"></a>2.2.1 整数数据类型</h4><p>C语言标准定义了每种数据类型必须能够表示的最小的取值范围。但是通常实际会比标准大上一些</p>
-<h4 id="2-2-2-无符号数的编码"><a href="#2-2-2-无符号数的编码" class="headerlink" title="2.2.2 无符号数的编码"></a>2.2.2 无符号数的编码</h4><p>对于一个$w$位的整数数据类型，不妨将其看作一个位向量$\vec x = [x<em>{w-1} , x</em>{w-2} , \cdots , x_0]$。将其视为一个二进制数就得到了无符号表示。<br>定义一个函数$B2U_w$（Binary to Unsigned，长度为w），用来表示由二进制转化为无符号数。</p>
+<h4 id="2-2-2-无符号数的编码"><a href="#2-2-2-无符号数的编码" class="headerlink" title="2.2.2 无符号数的编码"></a>2.2.2 无符号数的编码</h4><p>对于一个$w$位的整数数据类型，不妨将其看作一个位向量$\vec x = [x_{w-1} , x_{w-2} , \cdots , x_0]$。将其视为一个二进制数就得到了无符号表示。<br>定义一个函数$B2U_w$（Binary to Unsigned，长度为w），用来表示由二进制转化为无符号数。</p>
 <blockquote>
-<p>无符号数编码的定义<br>对向量$\vec x = [x<em>{w-1} , x</em>{w-2} , \cdots , x_0]$<br>$$B2U<em>w(\vec x) \doteq \sum</em>{i=0}^{w-1}x_i2^i$$</p>
+<p>无符号数编码的定义<br>对向量$\vec x = [x_{w-1} , x_{w-2} , \cdots , x_0]$<br>$$B2U_w(\vec x) \doteq \sum_{i=0}^{w-1}x_i2^i$$</p>
 </blockquote>
 <h4 id="2-2-3-补码编码"><a href="#2-2-3-补码编码" class="headerlink" title="2.2.3 补码编码"></a>2.2.3 补码编码</h4><p>在补码的定义中将最高有效位解释为负权。<br>定义函数$B2T_w$（Binary to Two’s-complement，长度为w），用来表示二进制转补码。</p>
 <blockquote>
-<p>补码编码的定义<br>对向量$\vec x = [x<em>{w-1} , x</em>{w-2} , \cdots , x_0]$<br>$$B2T<em>w(\vec x) \doteq -x</em>{w-1} 2^{w-1} + \sum_{i=0}^{w-2}x_i2^i$$</p>
+<p>补码编码的定义<br>对向量$\vec x = [x_{w-1} , x_{w-2} , \cdots , x_0]$<br>$$B2T_w(\vec x) \doteq -x_{w-1} 2^{w-1} + \sum_{i=0}^{w-2}x_i2^i$$</p>
 </blockquote>
 <p>最高有效位$x_{w-1}$也被成为符号位，为1时，表示值为负，为0时，表示值为非负。</p>
 <h4 id="2-2-4-有符号数和无符号数之间的转换"><a href="#2-2-4-有符号数和无符号数之间的转换" class="headerlink" title="2.2.4 有符号数和无符号数之间的转换"></a>2.2.4 有符号数和无符号数之间的转换</h4><p>C语言中，强制类型转换保持位值不变，只改变解释这些位的方式。</p>
@@ -433,9 +433,6 @@
 <h4 id="2-2-5-C语言中的有符号数和无符号数"><a href="#2-2-5-C语言中的有符号数和无符号数" class="headerlink" title="2.2.5 C语言中的有符号数和无符号数"></a>2.2.5 C语言中的有符号数和无符号数</h4><p>C语言中，当执行运算时，一个运算数为有符号，另一个为无符号，C语言会隐式地将有符号数转换为无符号数。</p>
 <h4 id="2-2-6-扩展一个数字的位表示"><a href="#2-2-6-扩展一个数字的位表示" class="headerlink" title="2.2.6 扩展一个数字的位表示"></a>2.2.6 扩展一个数字的位表示</h4><p>无符号数的零扩展：只要将高位用0填充即可。<br>补码数的符号扩展：只要将高位用符号位填充即可。</p>
 <h4 id="2-2-7-截断数字"><a href="#2-2-7-截断数字" class="headerlink" title="2.2.7 截断数字"></a>2.2.7 截断数字</h4><p>截断一个数字，会直接丢弃高位，所以很可能会改变原来的值。</p>
-<script type="text/javascript" src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
 
       
     </div>
@@ -662,6 +659,23 @@
     NexT.Pisces
   </a>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    }); 
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
         
