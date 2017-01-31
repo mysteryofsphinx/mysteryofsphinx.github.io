@@ -248,6 +248,159 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="LeeHolmes">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/圣诞贞德.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="学海泛舟">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/" itemprop="url">
+                  codeforces contest449 A Jzzhu and Chocolate 题解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-13T22:29:47+08:00">
+                2017-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM题解/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM题解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://codeforces.com/contest/449/problem/A" target="_blank" rel="external">传送门</a></p>
+<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>给一块n*m的巧克力，要切k刀（只能沿个分割线切，即横着切或竖着切），问切完后，最小的那块的最大面积是多少</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>为使最小的面积最大，无论在行还是列，我们都应该尽量等分。<br>那么，最小面积的表达式就不难列出了，area=(n/x)<em>(m/y)（这里的除法都是地板除），其中x表示被分成了x行，y表示被分成了y列，剩下的问题是如何求出面积的最大值。<br>基于x+y=k+2这个等式，我们不难发现，倘若n/x（m/y）固定时，只要使x（y）尽可能大，那么area就会取到当前的最大值。<br>那么我们就先枚举n/x的值，x的取值范围是[1,n]，n/x的值的个数一定是小于2</em>sqrt(n)，所以枚举这个想法在时间复杂度是可行的。然后我们再枚举m/y的值，不断更新area的值，最后就能得到最小的最大面积了。</p>
+<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	LL n,m,k;</div><div class="line">	LL ans=<span class="number">0</span>;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%I64d %I64d %I64d"</span>,&amp;n,&amp;m,&amp;k);</div><div class="line">	<span class="keyword">if</span>(n+m&lt;k+<span class="number">2</span>) &#123;</div><div class="line">		<span class="built_in">puts</span>(<span class="string">"-1"</span>);</div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n/i&amp;&amp;i&lt;k+<span class="number">2</span>;i++)&#123;</div><div class="line">		ans=max(ans,(n/i)*(m/(k+<span class="number">2</span>-i)));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(i=n/i;i&gt;=<span class="number">1</span>&amp;&amp;n/i&lt;k+<span class="number">2</span>;i--)&#123;</div><div class="line">		ans=max(ans,i*(m/(k+<span class="number">2</span>-n/i)));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=m/i&amp;&amp;i&lt;k+<span class="number">2</span>;i++)&#123;</div><div class="line">		ans=max(ans,(m/i)*(n/(k+<span class="number">2</span>-i)));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(i=m/i;i&gt;=<span class="number">1</span>&amp;&amp;m/i&lt;k+<span class="number">2</span>;i--)&#123;</div><div class="line">		ans=max(ans,i*(n/(k+<span class="number">2</span>-m/i)));</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/11/UVa-1220-Party-at-Hali-Bula-题解/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -876,7 +1029,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -894,7 +1047,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
