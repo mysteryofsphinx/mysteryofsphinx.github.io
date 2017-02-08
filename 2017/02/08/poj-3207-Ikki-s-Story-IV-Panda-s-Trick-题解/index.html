@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="math,spoj," />
+  <meta name="keywords" content="poj,2-SAT," />
 
 
 
@@ -85,21 +85,24 @@
 
 
 <meta name="description" content="原题传送门
-题目大意一个由1，2，3……2n组成的集合，问它由多少个子集满足以下条件：该子集包含a、b，其中a是该子集中最小的元素，b是a的倍数
-分析首先考虑，显然可以枚举最小元素k（1……n），对于任意一个k，它的倍数的个数为2n/k-1，对于这些倍数，至少要取一个，那么一共有2^（（2n/k-1）-1）（就是所有的可能减去一个空集的可能），剩下的元素可取可不取，那么一共有2^(2n-i-2*n">
+题目大意圆上有n个点，连接其中m对点，可以选择在圆外或圆内连线，问能否使所有的连线都不相交。
+分析注意到连线只有两种状态，在圆外连或者在圆内连，就很容易联想到2-SAT。将每一条连线都看作两个点，分别代表连线处于圆内和连线处于圆外。对于有可能相交的连线，就当作一种约束条件。当然要注意这里是无向边。
+参考代码1234567891011121314151617181920212223242">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spoj INTSUB - Interesting Subset 题解">
-<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/01/15/spoj-INTSUB-Interesting-Subset-题解/index.html">
+<meta property="og:title" content="poj 3207 Ikki's Story IV - Panda's Trick 题解">
+<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/index.html">
 <meta property="og:site_name" content="学海泛舟">
 <meta property="og:description" content="原题传送门
-题目大意一个由1，2，3……2n组成的集合，问它由多少个子集满足以下条件：该子集包含a、b，其中a是该子集中最小的元素，b是a的倍数
-分析首先考虑，显然可以枚举最小元素k（1……n），对于任意一个k，它的倍数的个数为2n/k-1，对于这些倍数，至少要取一个，那么一共有2^（（2n/k-1）-1）（就是所有的可能减去一个空集的可能），剩下的元素可取可不取，那么一共有2^(2n-i-2*n">
-<meta property="og:updated_time" content="2017-01-17T15:33:43.674Z">
+题目大意圆上有n个点，连接其中m对点，可以选择在圆外或圆内连线，问能否使所有的连线都不相交。
+分析注意到连线只有两种状态，在圆外连或者在圆内连，就很容易联想到2-SAT。将每一条连线都看作两个点，分别代表连线处于圆内和连线处于圆外。对于有可能相交的连线，就当作一种约束条件。当然要注意这里是无向边。
+参考代码1234567891011121314151617181920212223242">
+<meta property="og:updated_time" content="2017-02-08T08:40:09.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spoj INTSUB - Interesting Subset 题解">
+<meta name="twitter:title" content="poj 3207 Ikki's Story IV - Panda's Trick 题解">
 <meta name="twitter:description" content="原题传送门
-题目大意一个由1，2，3……2n组成的集合，问它由多少个子集满足以下条件：该子集包含a、b，其中a是该子集中最小的元素，b是a的倍数
-分析首先考虑，显然可以枚举最小元素k（1……n），对于任意一个k，它的倍数的个数为2n/k-1，对于这些倍数，至少要取一个，那么一共有2^（（2n/k-1）-1）（就是所有的可能减去一个空集的可能），剩下的元素可取可不取，那么一共有2^(2n-i-2*n">
+题目大意圆上有n个点，连接其中m对点，可以选择在圆外或圆内连线，问能否使所有的连线都不相交。
+分析注意到连线只有两种状态，在圆外连或者在圆内连，就很容易联想到2-SAT。将每一条连线都看作两个点，分别代表连线处于圆内和连线处于圆外。对于有可能相交的连线，就当作一种约束条件。当然要注意这里是无向边。
+参考代码1234567891011121314151617181920212223242">
 
 
 
@@ -127,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/01/15/spoj-INTSUB-Interesting-Subset-题解/"/>
+  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/"/>
 
 
 
 
 
-  <title> spoj INTSUB - Interesting Subset 题解 | 学海泛舟 </title>
+  <title> poj 3207 Ikki's Story IV - Panda's Trick 题解 | 学海泛舟 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/15/spoj-INTSUB-Interesting-Subset-题解/">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="LeeHolmes">
@@ -280,7 +283,7 @@
             
             
               
-                spoj INTSUB - Interesting Subset 题解
+                poj 3207 Ikki's Story IV - Panda's Trick 题解
               
             
           </h1>
@@ -295,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-15T16:46:21+08:00">
-                2017-01-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T16:21:27+08:00">
+                2017-02-08
               </time>
             
 
@@ -336,8 +339,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/15/spoj-INTSUB-Interesting-Subset-题解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/15/spoj-INTSUB-Interesting-Subset-题解/" itemprop="commentCount"></span>
+                <a href="/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,10 +366,10 @@
       
 
       
-        <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://www.spoj.com/problems/INTSUB/" target="_blank" rel="external">传送门</a></p>
-<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>一个由1，2，3……2n组成的集合，问它由多少个子集满足以下条件：该子集包含a、b，其中a是该子集中最小的元素，b是a的倍数</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先考虑，显然可以枚举最小元素k（1……n），对于任意一个k，它的倍数的个数为2n/k-1，对于这些倍数，至少要取一个，那么一共有2^（（2<em>n/k-1）-1）（就是所有的可能减去一个空集的可能），剩下的元素可取可不取，那么一共有2^(2</em>n-i-2*n/i+1)，再根据乘法原理，相乘就是答案。</p>
-<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1000000007</span>;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> f[<span class="number">2010</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">getf</span><span class="params">()</span></span>&#123;</div><div class="line">	f[<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">2010</span>;++i)&#123;</div><div class="line">		f[i]=(f[i<span class="number">-1</span>]&lt;&lt;<span class="number">1</span>)%mod;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> T;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">	<span class="keyword">int</span> icase=<span class="number">0</span>;</div><div class="line">	getf();</div><div class="line">	<span class="keyword">while</span>(T--)&#123;</div><div class="line">		<span class="keyword">int</span> n;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">		<span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</div><div class="line">			ans=(ans+(f[<span class="number">2</span>*n/i<span class="number">-1</span>]<span class="number">-1</span>)*(f[<span class="number">2</span>*n-i<span class="number">-2</span>*n/i+<span class="number">1</span>])%mod)%mod;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"Case %d: %lld\n"</span>,++icase,ans);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">传送门</a></p>
+<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>圆上有n个点，连接其中m对点，可以选择在圆外或圆内连线，问能否使所有的连线都不相交。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>注意到连线只有两种状态，在圆外连或者在圆内连，就很容易联想到2-SAT。<br>将每一条连线都看作两个点，分别代表连线处于圆内和连线处于圆外。<br>对于有可能相交的连线，就当作一种约束条件。<br>当然要注意这里是无向边。</p>
+<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">5500</span>;</div><div class="line"><span class="keyword">struct</span> Edge&#123;</div><div class="line">	<span class="keyword">int</span> to,next;</div><div class="line">&#125;edge[<span class="number">500</span>*<span class="number">500</span>+<span class="number">100</span>];</div><div class="line"><span class="keyword">int</span> head[maxn],tot;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</div><div class="line">	edge[tot].to=v;</div><div class="line">	edge[tot].next=head[u];</div><div class="line">	head[u]=tot++;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> scc,Low[maxn],DFN[maxn],Stack[maxn],top,Index,Belong[maxn];</div><div class="line"><span class="keyword">bool</span> Instack[maxn];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> v;</div><div class="line">	Low[u]=DFN[u]=++Index;</div><div class="line">	Stack[top++]=u;</div><div class="line">	Instack[u]=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=edge[i].next)&#123;</div><div class="line">		v=edge[i].to;</div><div class="line">		<span class="keyword">if</span>(!DFN[v])&#123;</div><div class="line">			tarjan(v);</div><div class="line">			<span class="keyword">if</span>(Low[u]&gt;Low[v]) Low[u]=Low[v];</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(Instack[v]&amp;&amp;Low[u]&gt;DFN[v])</div><div class="line">			Low[u]=DFN[v];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(Low[u]==DFN[u])&#123;</div><div class="line">		scc++;</div><div class="line">		<span class="keyword">do</span>&#123;</div><div class="line">			v=Stack[--top];</div><div class="line">			Instack[v]=<span class="literal">false</span>;</div><div class="line">			Belong[v]=scc;</div><div class="line">		&#125; <span class="keyword">while</span>(v!=u);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> N)</span></span>&#123;</div><div class="line">	<span class="built_in">memset</span>(DFN,<span class="number">0</span>,<span class="keyword">sizeof</span> DFN);</div><div class="line">	<span class="built_in">memset</span>(Instack,<span class="literal">false</span>,<span class="keyword">sizeof</span> Instack);</div><div class="line">	Index=scc=top=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;++i)</div><div class="line">		<span class="keyword">if</span>(!DFN[i])</div><div class="line">			tarjan(i);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">	tot=<span class="number">0</span>;</div><div class="line">	<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span> head);</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> a[<span class="number">2010</span>],b[<span class="number">2010</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n,m;</div><div class="line">	init();</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;++i)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,a+i,b+i);</div><div class="line">		<span class="keyword">if</span>(a[i]&gt;b[i]) swap(a[i],b[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;++i)</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;m;++j)</div><div class="line">			<span class="keyword">if</span>((a[i]&lt;=a[j]&amp;&amp;b[i]&gt;=a[j]&amp;&amp;b[i]&lt;=b[j])||(a[i]&gt;=a[j]&amp;&amp;a[i]&lt;=b[j]&amp;&amp;b[i]&gt;=b[j]))&#123;</div><div class="line">				addedge(i&lt;&lt;<span class="number">1</span>,j&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">				addedge(j&lt;&lt;<span class="number">1</span>,i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">				addedge(i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,j&lt;&lt;<span class="number">1</span>);</div><div class="line">				addedge(j&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,i&lt;&lt;<span class="number">1</span>);</div><div class="line">			&#125;</div><div class="line">	solve(<span class="number">2</span>*m);</div><div class="line">	<span class="keyword">bool</span> flag=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>*m;i+=<span class="number">2</span>)&#123;</div><div class="line">		<span class="keyword">if</span>(Belong[i]==Belong[i^<span class="number">1</span>])&#123;</div><div class="line">			flag=<span class="literal">false</span>;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(flag) <span class="built_in">printf</span>(<span class="string">"panda is telling the truth...\n"</span>);</div><div class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"the evil panda is lying again\n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -389,9 +392,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/math/" rel="tag"># math</a>
+            <a href="/tags/poj/" rel="tag"># poj</a>
           
-            <a href="/tags/spoj/" rel="tag"># spoj</a>
+            <a href="/tags/2-SAT/" rel="tag"># 2-SAT</a>
           
         </div>
       
@@ -400,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/15/spoj-STARSBC-Star-题解/" rel="next" title="spoj STARSBC - Star 题解">
-                <i class="fa fa-chevron-left"></i> spoj STARSBC - Star 题解
+              <a href="/2017/01/31/spoj-DWARFLOG-Manipulate-Dwarfs-题解/" rel="next" title="spoj DWARFLOG - Manipulate Dwarfs 题解">
+                <i class="fa fa-chevron-left"></i> spoj DWARFLOG - Manipulate Dwarfs 题解
               </a>
             
           </div>
@@ -409,10 +412,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/17/51nod-1158-全是1的最大子矩阵-题解/" rel="prev" title="51nod 1158 全是1的最大子矩阵 题解">
-                51nod 1158 全是1的最大子矩阵 题解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -438,8 +437,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/15/spoj-INTSUB-Interesting-Subset-题解/"
-           data-title="spoj INTSUB - Interesting Subset 题解" data-url="http://mysteryofsphinx.github.io/2017/01/15/spoj-INTSUB-Interesting-Subset-题解/">
+      <div class="ds-thread" data-thread-key="2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/"
+           data-title="poj 3207 Ikki's Story IV - Panda's Trick 题解" data-url="http://mysteryofsphinx.github.io/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/">
       </div>
     
   </div>
