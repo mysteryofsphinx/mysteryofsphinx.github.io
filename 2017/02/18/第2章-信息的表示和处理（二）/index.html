@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="spoj,trie树," />
+  <meta name="keywords" content="读书笔记,《深入了解计算机系统》," />
 
 
 
@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="原题传送门
-题目大意给定一些字符串，要求找出符合要求的(s1,s2)的对数。1、按照字典序，s1&amp;gt;s22、按照字典序，s1翻转后小于s2翻转后（若s1=”abc”，则翻转后为”cba”）
-分析一个要求很好满足，将字符串排序后，那么排在s1前面的字符串都会和s1满足要求一，只要在其中找到满足要求二的即可。我们很容易想到trie树，将排序后的字符串，翻转后插入字典树中，并一遍统计满足要求二的，就">
+<meta name="description" content="2.3 整数运算2.3.1 无符号加法对于两个限定范围的非负整数，它们的和通常处于一个更大的范围之中。编程语言支持限定精度的运算，故定义一种无符号数加法的运算$+^u_w$
+
+无符号数加法对满足$0 \leq x, y &amp;lt; 2^w$的x和y有：$$x +^u_w y = \begin{cases}x + y, &amp;amp; x + y &amp;lt; 2^w \\x + y - 2^w, &amp;amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spoj KAOS - Kaos 题解">
-<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/01/15/spoj-KAOS-Kaos-题解/index.html">
+<meta property="og:title" content="第2章 信息的表示和处理（二）">
+<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/02/18/第2章-信息的表示和处理（二）/index.html">
 <meta property="og:site_name" content="学海泛舟">
-<meta property="og:description" content="原题传送门
-题目大意给定一些字符串，要求找出符合要求的(s1,s2)的对数。1、按照字典序，s1&amp;gt;s22、按照字典序，s1翻转后小于s2翻转后（若s1=”abc”，则翻转后为”cba”）
-分析一个要求很好满足，将字符串排序后，那么排在s1前面的字符串都会和s1满足要求一，只要在其中找到满足要求二的即可。我们很容易想到trie树，将排序后的字符串，翻转后插入字典树中，并一遍统计满足要求二的，就">
-<meta property="og:updated_time" content="2017-01-15T06:05:14.597Z">
+<meta property="og:description" content="2.3 整数运算2.3.1 无符号加法对于两个限定范围的非负整数，它们的和通常处于一个更大的范围之中。编程语言支持限定精度的运算，故定义一种无符号数加法的运算$+^u_w$
+
+无符号数加法对满足$0 \leq x, y &amp;lt; 2^w$的x和y有：$$x +^u_w y = \begin{cases}x + y, &amp;amp; x + y &amp;lt; 2^w \\x + y - 2^w, &amp;amp;">
+<meta property="og:updated_time" content="2017-02-18T03:19:09.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spoj KAOS - Kaos 题解">
-<meta name="twitter:description" content="原题传送门
-题目大意给定一些字符串，要求找出符合要求的(s1,s2)的对数。1、按照字典序，s1&amp;gt;s22、按照字典序，s1翻转后小于s2翻转后（若s1=”abc”，则翻转后为”cba”）
-分析一个要求很好满足，将字符串排序后，那么排在s1前面的字符串都会和s1满足要求一，只要在其中找到满足要求二的即可。我们很容易想到trie树，将排序后的字符串，翻转后插入字典树中，并一遍统计满足要求二的，就">
+<meta name="twitter:title" content="第2章 信息的表示和处理（二）">
+<meta name="twitter:description" content="2.3 整数运算2.3.1 无符号加法对于两个限定范围的非负整数，它们的和通常处于一个更大的范围之中。编程语言支持限定精度的运算，故定义一种无符号数加法的运算$+^u_w$
+
+无符号数加法对满足$0 \leq x, y &amp;lt; 2^w$的x和y有：$$x +^u_w y = \begin{cases}x + y, &amp;amp; x + y &amp;lt; 2^w \\x + y - 2^w, &amp;amp;">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/01/15/spoj-KAOS-Kaos-题解/"/>
+  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/02/18/第2章-信息的表示和处理（二）/"/>
 
 
 
 
 
-  <title> spoj KAOS - Kaos 题解 | 学海泛舟 </title>
+  <title> 第2章 信息的表示和处理（二） | 学海泛舟 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/15/spoj-KAOS-Kaos-题解/">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/02/18/第2章-信息的表示和处理（二）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="LeeHolmes">
@@ -280,7 +280,7 @@
             
             
               
-                spoj KAOS - Kaos 题解
+                第2章 信息的表示和处理（二）
               
             
           </h1>
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-15T13:31:49+08:00">
-                2017-01-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T11:17:10+08:00">
+                2017-02-18
               </time>
             
 
@@ -318,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM题解/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM题解</span>
+                  <a href="/categories/《深入了解计算机系统》读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">《深入了解计算机系统》读书笔记</span>
                   </a>
                 </span>
 
@@ -336,8 +336,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/15/spoj-KAOS-Kaos-题解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/15/spoj-KAOS-Kaos-题解/" itemprop="commentCount"></span>
+                <a href="/2017/02/18/第2章-信息的表示和处理（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/第2章-信息的表示和处理（二）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,10 +363,62 @@
       
 
       
-        <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://www.spoj.com/problems/KAOS/" target="_blank" rel="external">传送门</a></p>
-<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>给定一些字符串，要求找出符合要求的(s1,s2)的对数。<br>1、按照字典序，s1&gt;s2<br>2、按照字典序，s1翻转后小于s2翻转后（若s1=”abc”，则翻转后为”cba”）</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>一个要求很好满足，将字符串排序后，那么排在s1前面的字符串都会和s1满足要求一，只要在其中找到满足要求二的即可。<br>我们很容易想到trie树，将排序后的字符串，翻转后插入字典树中，并一遍统计满足要求二的，就能得到答案。</p>
-<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100000</span>+<span class="number">10</span>;</div><div class="line"><span class="keyword">struct</span> node&#123;</div><div class="line">	<span class="keyword">int</span> next[<span class="number">26</span>];</div><div class="line">	<span class="keyword">int</span> cnt;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">		cnt=<span class="number">0</span>;</div><div class="line">		<span class="built_in">memset</span>(next,<span class="number">0</span>,<span class="keyword">sizeof</span> next);</div><div class="line">	&#125;</div><div class="line">&#125;T[maxn*<span class="number">20</span>];</div><div class="line"><span class="keyword">int</span> tot;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</div><div class="line">    reverse(s.begin(),s.end());</div><div class="line">	<span class="keyword">int</span> i=<span class="number">0</span>,p=<span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span>(s[i])&#123;</div><div class="line">		<span class="keyword">int</span> x=s[i]-<span class="string">'a'</span>;</div><div class="line">		<span class="keyword">if</span>(T[p].next[x]==<span class="number">0</span>)&#123;</div><div class="line">			T[tot].init();</div><div class="line">			T[p].next[x]=tot++;</div><div class="line">		&#125;</div><div class="line">		p=T[p].next[x];</div><div class="line">		T[p].cnt++;</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getans</span><span class="params">(<span class="built_in">string</span> s)</span></span></div><div class="line">&#123;</div><div class="line">    reverse(s.begin(),s.end());</div><div class="line">    <span class="keyword">int</span> now=<span class="number">0</span>,ans=<span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(s[i])</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> x=s[i]-<span class="string">'a'</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=x+<span class="number">1</span>;j&lt;<span class="number">26</span>;++j)</div><div class="line">        &#123;</div><div class="line">            ans+=T[T[now].next[j]].cnt;</div><div class="line">        &#125;</div><div class="line">        now=T[now].next[x];</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">26</span>;++j)</div><div class="line">    &#123;</div><div class="line">        ans+=T[T[now].next[j]].cnt;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"><span class="built_in">string</span> s[maxn];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	tot=<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">cin</span>&gt;&gt;s[i];</div><div class="line">    &#125;</div><div class="line">    sort(s,s+n);</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</div><div class="line">    T[<span class="number">0</span>].init();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</div><div class="line">    &#123;</div><div class="line">        insert(s[i]);</div><div class="line">        ans+=getans(s[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="2-3-整数运算"><a href="#2-3-整数运算" class="headerlink" title="2.3 整数运算"></a>2.3 整数运算</h3><h4 id="2-3-1-无符号加法"><a href="#2-3-1-无符号加法" class="headerlink" title="2.3.1 无符号加法"></a>2.3.1 无符号加法</h4><p>对于两个限定范围的非负整数，它们的和通常处于一个更大的范围之中。编程语言支持限定精度的运算，故定义一种无符号数加法的运算$+^u_w$</p>
+<blockquote>
+<p>无符号数加法<br>对满足$0 \leq x, y &lt; 2^w$的x和y有：<br>$$x +^u_w y = \begin{cases}x + y, &amp; x + y &lt; 2^w \\x + y - 2^w, &amp; 2^w \leq x + y &lt; 2^{w+1}\end{cases}$$</p>
+</blockquote>
+<p>只要检验无符号数加法后的结果是否比原来的两个加数小，就能够判定结果是否发生了溢出</p>
+<h4 id="2-3-2-补码加法"><a href="#2-3-2-补码加法" class="headerlink" title="2.3.2 补码加法"></a>2.3.2 补码加法</h4><p>补码进行运算的时候，同样存在溢出的问题，但补码存在正负问题，形势相对复杂一些。</p>
+<blockquote>
+<p>补码加法<br>对满足$-2^{w-1} \leq x, y \leq 2^{w-1} - 1$的整数x和y，有：<br>$$x +^t_w y = \begin{cases}x + y - 2^w, &amp; 2^{w-1} \leq x + y \\x + y, &amp; -2^{w-1} \leq x + y &lt; 2^{w-1} \\x + y + 2^w, &amp; x + y &lt; -2^{w-1}\end{cases}$$</p>
+</blockquote>
+<p>虽然区分无符号加法和补码加法，但是两者从位级的角度来看是相同的。这是因为对位级而言，两者都是相加后截取w位的结果。</p>
+<p>如果x&gt;0，y&gt;0，但补码加法后<0，则发生了正溢出，如果x<0，y<0，但补码加法后>0，则发生了负溢出。</0，则发生了正溢出，如果x<0，y<0，但补码加法后></p>
+<h4 id="2-3-3-补码的非"><a href="#2-3-3-补码的非" class="headerlink" title="2.3.3 补码的非"></a>2.3.3 补码的非</h4><p>对于$TMin_w \leq x \leq TMax_w$中的数字x，其在补码加法下的加法逆元，一般为-x，但是注意到$-TMin_w = TMax_w + 1$，这时我们从定义出发，$TMin_w$的加法逆元就是其本身。</p>
+<h4 id="2-3-4-无符号乘法"><a href="#2-3-4-无符号乘法" class="headerlink" title="2.3.4 无符号乘法"></a>2.3.4 无符号乘法</h4><p>无符号乘法从位级上来看，仍和之前的加法类似，直接相乘的基础上截取低w位。</p>
+<blockquote>
+<p>无符号数乘法<br>对满足$0 \leq x, y \leq UMax_w$的x和y有：<br>$$x *^u_w y = (x \cdot y) mod 2^w$$</p>
+</blockquote>
+<h4 id="2-3-5-补码乘法"><a href="#2-3-5-补码乘法" class="headerlink" title="2.3.5 补码乘法"></a>2.3.5 补码乘法</h4><p>无论是无符号乘法还是补码乘法，它们的位级表示是一样的，</p>
+<blockquote>
+<p>补码乘法<br>对满足$Tmin_w \leq x, y \leq TMax_w$的x和y有：<br>$$x *^t_w y = U2T_w((x \cdot y)mod 2^w)$$</p>
+</blockquote>
+<h4 id="2-3-6-乘以常数"><a href="#2-3-6-乘以常数" class="headerlink" title="2.3.6 乘以常数"></a>2.3.6 乘以常数</h4><p>整数乘法指令相比于其他整数运算慢得多，故编译器会尝试用位移和加法运算代替乘以常数的运算。<br>通过位移运算，能够迅速计算乘以2的幂的结果，那么将要乘的数分解为2的幂的和，再通过乘法分配律，就能用位移运算和加法运算表示乘以任意一个常数的运算了。</p>
+<h4 id="2-3-7-除以2的幂"><a href="#2-3-7-除以2的幂" class="headerlink" title="2.3.7 除以2的幂"></a>2.3.7 除以2的幂</h4><p>整数除法比整数乘法更慢。<br>除以2的幂也可以用位移运算实现。<br>无符号除法使用的是逻辑右移。<br>补码除法，使用算数右移，效果为向下舍入。这种舍入，在为负数时，就造成了右移和除以2的幂结果不相等的情况。为了解决这个问题，可以通过移位前<strong>偏置</strong>这个值来修正。具体的做法也很简单，假设除以的时2的k次幂，那么在右移前先给原数加上(1&lt;&lt;k)-1。</p>
+<h3 id="2-4-浮点数"><a href="#2-4-浮点数" class="headerlink" title="2.4 浮点数"></a>2.4 浮点数</h3><p>目前，所有计算机都支持<strong>IEEE浮点</strong>为标准。</p>
+<h4 id="2-4-1-二进制小数"><a href="#2-4-1-二进制小数" class="headerlink" title="2.4.1 二进制小数"></a>2.4.1 二进制小数</h4><p>二进制小数的概念类比于十进制小数。<br>形如$b_mb_{m-1} \ldots b_1b_0 \ldotp b_{-1}b_{-2} \ldots b_{-n-1}b_{-n}$这样的二进制小数，表示的数b<br>$$b = \sum^m_{i=-n}2^i \times b_i$$</p>
+<h4 id="2-4-2-IEEE浮点表示"><a href="#2-4-2-IEEE浮点表示" class="headerlink" title="2.4.2 IEEE浮点表示"></a>2.4.2 IEEE浮点表示</h4><p>IEEE浮点标准用$V = (-1)^s \times M \times 2^E$表示一个数：</p>
+<ul>
+<li>符号 s的取值（0或者1）决定了这个数的正负</li>
+<li>尾数 M是一个二进制小数</li>
+<li>阶码 E是一个权值</li>
+</ul>
+<p>这种表示方法其实类似于科学记数法，当然限于存储的位数和表示的本身，浮点数的精度是有限的，正如1/3也不可能用科学计数法精确表示。</p>
+<p>当把这种标准具体到实际，情况要稍微复杂一些。<br>浮点数的位划分为三个字段：</p>
+<ul>
+<li>符号位s编码为符号s（直接编码）</li>
+<li>k位的阶码字段exp编码为阶码E</li>
+<li>n位小数字段frac编码位尾数M</li>
+</ul>
+<p>根据exp的值，exp和frac的编码方式是不同的，这要划分为三种不同的情况：</p>
+<ul>
+<li><p>规格化的值<br>当exp的位模式既不全是0，也不全是1，就是这种情况。<br>此时，阶码E=e-Bias，其中e是一个无符号数，其位模式就是exp，Bias是$2^{k-1}-1$；尾数M=1+f，其中f的位模式是0.frac（就是在frac的位模式前面加上一个0和一个小数点）。</p>
+</li>
+<li><p>非规格化的值<br>当exp的位模式全为0时，表示的就是非规格化的值。<br>此时，E=1-Bias，M=f。</p>
+</li>
+<li><p>特殊值<br>当exp的位模式全为1时，就是特殊值，其实就两种，无穷大和NaN。<br>当frac全为0时，代表无穷大，否则就是NaN（不是一个数）。</p>
+</li>
+</ul>
+<h4 id="2-4-4-舍入"><a href="#2-4-4-舍入" class="headerlink" title="2.4.4 舍入"></a>2.4.4 舍入</h4><p>面对实数运算时，浮点数面临了精度问题，而舍入就是在限制条件下，找到一个最接近的匹配值。IEEE浮点格式定义了四种舍入方式。</p>
+<ul>
+<li>向偶数舍入：这种舍入方式总是舍入为最接近该数的数，例如1.4舍入为1，3.6舍入为4。当遇到中间值时，如1.5，就朝舍入后最低有效为偶数的方向舍入，如1.5舍入为2，4.5舍入为4。</li>
+<li>向零舍入：就是朝零的方向舍入，即正数向下舍入，负数向上舍入。</li>
+<li>向下舍入</li>
+<li>向上舍入</li>
+</ul>
+<p>默认采用向偶数舍入。</p>
+<h4 id="2-4-5-浮点运算"><a href="#2-4-5-浮点运算" class="headerlink" title="2.4.5 浮点运算"></a>2.4.5 浮点运算</h4><p>浮点加法具有交换性，单调性，但不具备结合性。<br>浮点乘法具有交换性，有单调性，但没有对加法的分配性。</p>
+
       
     </div>
 
@@ -389,9 +441,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/spoj/" rel="tag"># spoj</a>
+            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
           
-            <a href="/tags/trie树/" rel="tag"># trie树</a>
+            <a href="/tags/《深入了解计算机系统》/" rel="tag"># 《深入了解计算机系统》</a>
           
         </div>
       
@@ -400,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/13/codeforces-contest449-A-Jzzhu-and-Chocolate-题解/" rel="next" title="codeforces contest449 A Jzzhu and Chocolate 题解">
-                <i class="fa fa-chevron-left"></i> codeforces contest449 A Jzzhu and Chocolate 题解
+              <a href="/2017/02/09/poj-3678-Katu-Puzzle-题解/" rel="next" title="poj 3678 Katu Puzzle 题解">
+                <i class="fa fa-chevron-left"></i> poj 3678 Katu Puzzle 题解
               </a>
             
           </div>
@@ -409,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/15/spoj-STARSBC-Star-题解/" rel="prev" title="spoj STARSBC - Star 题解">
-                spoj STARSBC - Star 题解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -438,8 +486,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/15/spoj-KAOS-Kaos-题解/"
-           data-title="spoj KAOS - Kaos 题解" data-url="http://mysteryofsphinx.github.io/2017/01/15/spoj-KAOS-Kaos-题解/">
+      <div class="ds-thread" data-thread-key="2017/02/18/第2章-信息的表示和处理（二）/"
+           data-title="第2章 信息的表示和处理（二）" data-url="http://mysteryofsphinx.github.io/2017/02/18/第2章-信息的表示和处理（二）/">
       </div>
     
   </div>
@@ -557,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原题"><span class="nav-number">1.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目大意"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考代码"><span class="nav-number">4.</span> <span class="nav-text">参考代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-整数运算"><span class="nav-number">1.</span> <span class="nav-text">2.3 整数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-无符号加法"><span class="nav-number">1.1.</span> <span class="nav-text">2.3.1 无符号加法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-补码加法"><span class="nav-number">1.2.</span> <span class="nav-text">2.3.2 补码加法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-补码的非"><span class="nav-number">1.3.</span> <span class="nav-text">2.3.3 补码的非</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-4-无符号乘法"><span class="nav-number">1.4.</span> <span class="nav-text">2.3.4 无符号乘法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-5-补码乘法"><span class="nav-number">1.5.</span> <span class="nav-text">2.3.5 补码乘法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-6-乘以常数"><span class="nav-number">1.6.</span> <span class="nav-text">2.3.6 乘以常数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-7-除以2的幂"><span class="nav-number">1.7.</span> <span class="nav-text">2.3.7 除以2的幂</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-浮点数"><span class="nav-number">2.</span> <span class="nav-text">2.4 浮点数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-二进制小数"><span class="nav-number">2.1.</span> <span class="nav-text">2.4.1 二进制小数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-IEEE浮点表示"><span class="nav-number">2.2.</span> <span class="nav-text">2.4.2 IEEE浮点表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-4-舍入"><span class="nav-number">2.3.</span> <span class="nav-text">2.4.4 舍入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-5-浮点运算"><span class="nav-number">2.4.</span> <span class="nav-text">2.4.5 浮点运算</span></a></li></ol></li></ol></div>
             
 
           </div>
