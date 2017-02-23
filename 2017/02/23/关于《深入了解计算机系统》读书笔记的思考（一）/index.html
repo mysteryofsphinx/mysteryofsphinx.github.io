@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="math,spoj," />
+  <meta name="keywords" content="读书笔记,《深入了解计算机系统》," />
 
 
 
@@ -84,25 +84,19 @@
 
 
 
-<meta name="description" content="原题传送门
-题目大意一个圆上有n等分点，选定一个为起点后，每隔k个点连一条边，要求所有点都经过的不同图形有多少个。
-分析首先，所有和n有公因数的k是不可行的，当然1除外。此时的答案显然是n的欧拉函数+1（即1），但还要去除图案重复的。其次，通过顺时针和逆时针观察，发现k和n-k的图案是相同的，所以，最终的答案是欧拉函数+1的一半
-参考代码123456789101112131415161718192">
+<meta name="description" content="《深入了解计算机系统》我看到了第三章了，读书笔记也写了两章。这是我第一次写电子版的读书笔记，感觉确实和我以前写在书旁的批注式的笔记相去甚远。我原本设想将书中的知识点能够尽可能的罗列出来，并且想从自己的角度加以理解和思考。但是通过这两章读书笔记的写作，我发现了很多问题。
+首先，我觉得将书中的知识点完全罗列，既效率底下，又毫无必要，这不但拖慢读书速度，而且对于书籍的理解恐怕也没有多少帮助。其次，我的读">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spoj STARSBC - Star 题解">
-<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/01/15/spoj-STARSBC-Star-题解/index.html">
+<meta property="og:title" content="关于《深入了解计算机系统》读书笔记的思考（一）">
+<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/02/23/关于《深入了解计算机系统》读书笔记的思考（一）/index.html">
 <meta property="og:site_name" content="学海泛舟">
-<meta property="og:description" content="原题传送门
-题目大意一个圆上有n等分点，选定一个为起点后，每隔k个点连一条边，要求所有点都经过的不同图形有多少个。
-分析首先，所有和n有公因数的k是不可行的，当然1除外。此时的答案显然是n的欧拉函数+1（即1），但还要去除图案重复的。其次，通过顺时针和逆时针观察，发现k和n-k的图案是相同的，所以，最终的答案是欧拉函数+1的一半
-参考代码123456789101112131415161718192">
-<meta property="og:updated_time" content="2017-01-15T07:57:34.509Z">
+<meta property="og:description" content="《深入了解计算机系统》我看到了第三章了，读书笔记也写了两章。这是我第一次写电子版的读书笔记，感觉确实和我以前写在书旁的批注式的笔记相去甚远。我原本设想将书中的知识点能够尽可能的罗列出来，并且想从自己的角度加以理解和思考。但是通过这两章读书笔记的写作，我发现了很多问题。
+首先，我觉得将书中的知识点完全罗列，既效率底下，又毫无必要，这不但拖慢读书速度，而且对于书籍的理解恐怕也没有多少帮助。其次，我的读">
+<meta property="og:updated_time" content="2017-02-23T15:40:40.288Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spoj STARSBC - Star 题解">
-<meta name="twitter:description" content="原题传送门
-题目大意一个圆上有n等分点，选定一个为起点后，每隔k个点连一条边，要求所有点都经过的不同图形有多少个。
-分析首先，所有和n有公因数的k是不可行的，当然1除外。此时的答案显然是n的欧拉函数+1（即1），但还要去除图案重复的。其次，通过顺时针和逆时针观察，发现k和n-k的图案是相同的，所以，最终的答案是欧拉函数+1的一半
-参考代码123456789101112131415161718192">
+<meta name="twitter:title" content="关于《深入了解计算机系统》读书笔记的思考（一）">
+<meta name="twitter:description" content="《深入了解计算机系统》我看到了第三章了，读书笔记也写了两章。这是我第一次写电子版的读书笔记，感觉确实和我以前写在书旁的批注式的笔记相去甚远。我原本设想将书中的知识点能够尽可能的罗列出来，并且想从自己的角度加以理解和思考。但是通过这两章读书笔记的写作，我发现了很多问题。
+首先，我觉得将书中的知识点完全罗列，既效率底下，又毫无必要，这不但拖慢读书速度，而且对于书籍的理解恐怕也没有多少帮助。其次，我的读">
 
 
 
@@ -130,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/01/15/spoj-STARSBC-Star-题解/"/>
+  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/02/23/关于《深入了解计算机系统》读书笔记的思考（一）/"/>
 
 
 
 
 
-  <title> spoj STARSBC - Star 题解 | 学海泛舟 </title>
+  <title> 关于《深入了解计算机系统》读书笔记的思考（一） | 学海泛舟 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/15/spoj-STARSBC-Star-题解/">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/02/23/关于《深入了解计算机系统》读书笔记的思考（一）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="LeeHolmes">
@@ -283,7 +277,7 @@
             
             
               
-                spoj STARSBC - Star 题解
+                关于《深入了解计算机系统》读书笔记的思考（一）
               
             
           </h1>
@@ -298,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-15T15:15:10+08:00">
-                2017-01-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-23T23:38:19+08:00">
+                2017-02-23
               </time>
             
 
@@ -321,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM题解/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM题解</span>
+                  <a href="/categories/《深入了解计算机系统》读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">《深入了解计算机系统》读书笔记</span>
                   </a>
                 </span>
 
@@ -339,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/15/spoj-STARSBC-Star-题解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/15/spoj-STARSBC-Star-题解/" itemprop="commentCount"></span>
+                <a href="/2017/02/23/关于《深入了解计算机系统》读书笔记的思考（一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/23/关于《深入了解计算机系统》读书笔记的思考（一）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -366,10 +360,11 @@
       
 
       
-        <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://www.spoj.com/problems/STARSBC/" target="_blank" rel="external">传送门</a></p>
-<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>一个圆上有n等分点，选定一个为起点后，每隔k个点连一条边，要求所有点都经过的不同图形有多少个。</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先，所有和n有公因数的k是不可行的，当然1除外。<br>此时的答案显然是n的欧拉函数+1（即1），但还要去除图案重复的。<br>其次，通过顺时针和逆时针观察，发现k和n-k的图案是相同的，所以，最终的答案是欧拉函数+1的一半</p>
-<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">eular</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=n;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n/i;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            ans-=ans/i;</div><div class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>)</div><div class="line">                n/=i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ans-=ans/n;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> n;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n)!=EOF)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans=(eular(n)+<span class="number">1</span>)/<span class="number">2</span>;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</div><div class="line">    &#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>《深入了解计算机系统》我看到了第三章了，读书笔记也写了两章。这是我第一次写电子版的读书笔记，感觉确实和我以前写在书旁的批注式的笔记相去甚远。<br>我原本设想将书中的知识点能够尽可能的罗列出来，并且想从自己的角度加以理解和思考。<br>但是通过这两章读书笔记的写作，我发现了很多问题。</p>
+<p>首先，我觉得将书中的知识点完全罗列，既效率底下，又毫无必要，这不但拖慢读书速度，而且对于书籍的理解恐怕也没有多少帮助。<br>其次，我的读书笔记框架是严格遵从书本的章节，这就显得结构比较僵硬，更何况有些章节本身比较简单，知识点少，难度低，这个时候还要生硬的进行划分总结也不太合适。<br>最后，限于我的知识水平，可能还有没有深入思考，我自己本身的理解较少能付诸笔下，读书鲜有能够举一反三的。</p>
+<p>当然，读书笔记也起到了一定积极的作用，起码这本书并没有躺在一边吃灰尘。</p>
+<p>针对上述问题，我觉得我的读书笔记要进行整改。<br>要突破书本的章节安排，在内容上有所取舍，主要是要理清书本的脉络，尽量写下自己的一些见解。</p>
+
       
     </div>
 
@@ -392,9 +387,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/math/" rel="tag"># math</a>
+            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
           
-            <a href="/tags/spoj/" rel="tag"># spoj</a>
+            <a href="/tags/《深入了解计算机系统》/" rel="tag"># 《深入了解计算机系统》</a>
           
         </div>
       
@@ -403,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/15/spoj-KAOS-Kaos-题解/" rel="next" title="spoj KAOS - Kaos 题解">
-                <i class="fa fa-chevron-left"></i> spoj KAOS - Kaos 题解
+              <a href="/2017/02/18/第2章-信息的表示和处理（二）/" rel="next" title="第2章 信息的表示和处理（二）">
+                <i class="fa fa-chevron-left"></i> 第2章 信息的表示和处理（二）
               </a>
             
           </div>
@@ -412,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/15/spoj-INTSUB-Interesting-Subset-题解/" rel="prev" title="spoj INTSUB - Interesting Subset 题解">
-                spoj INTSUB - Interesting Subset 题解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,8 +432,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/15/spoj-STARSBC-Star-题解/"
-           data-title="spoj STARSBC - Star 题解" data-url="http://mysteryofsphinx.github.io/2017/01/15/spoj-STARSBC-Star-题解/">
+      <div class="ds-thread" data-thread-key="2017/02/23/关于《深入了解计算机系统》读书笔记的思考（一）/"
+           data-title="关于《深入了解计算机系统》读书笔记的思考（一）" data-url="http://mysteryofsphinx.github.io/2017/02/23/关于《深入了解计算机系统》读书笔记的思考（一）/">
       </div>
     
   </div>
@@ -466,17 +457,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/圣诞贞德.jpg"
@@ -550,22 +532,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原题"><span class="nav-number">1.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目大意"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考代码"><span class="nav-number">4.</span> <span class="nav-text">参考代码</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
