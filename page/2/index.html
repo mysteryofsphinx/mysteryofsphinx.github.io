@@ -248,6 +248,364 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/02/18/第2章-信息的表示和处理（二）/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="LeeHolmes">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/圣诞贞德.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="学海泛舟">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/18/第2章-信息的表示和处理（二）/" itemprop="url">
+                  第2章 信息的表示和处理（二）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T11:17:10+08:00">
+                2017-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《深入了解计算机系统》读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">《深入了解计算机系统》读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/18/第2章-信息的表示和处理（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/第2章-信息的表示和处理（二）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="2-3-整数运算"><a href="#2-3-整数运算" class="headerlink" title="2.3 整数运算"></a>2.3 整数运算</h3><h4 id="2-3-1-无符号加法"><a href="#2-3-1-无符号加法" class="headerlink" title="2.3.1 无符号加法"></a>2.3.1 无符号加法</h4><p>对于两个限定范围的非负整数，它们的和通常处于一个更大的范围之中。编程语言支持限定精度的运算，故定义一种无符号数加法的运算$+^u_w$</p>
+<blockquote>
+<p>无符号数加法<br>对满足$0 \leq x, y &lt; 2^w$的x和y有：<br>$$x +^u_w y = \begin{cases}x + y, &amp; x + y &lt; 2^w \\x + y - 2^w, &amp; 2^w \leq x + y &lt; 2^{w+1}\end{cases}$$</p>
+</blockquote>
+<p>只要检验无符号数加法后的结果是否比原来的两个加数小，就能够判定结果是否发生了溢出</p>
+<h4 id="2-3-2-补码加法"><a href="#2-3-2-补码加法" class="headerlink" title="2.3.2 补码加法"></a>2.3.2 补码加法</h4><p>补码进行运算的时候，同样存在溢出的问题，但补码存在正负问题，形势相对复杂一些。</p>
+<blockquote>
+<p>补码加法<br>对满足$-2^{w-1} \leq x, y \leq 2^{w-1} - 1$的整数x和y，有：<br>$$x +^t_w y = \begin{cases}x + y - 2^w, &amp; 2^{w-1} \leq x + y \\x + y, &amp; -2^{w-1} \leq x + y &lt; 2^{w-1} \\x + y + 2^w, &amp; x + y &lt; -2^{w-1}\end{cases}$$</p>
+</blockquote>
+<p>虽然区分无符号加法和补码加法，但是两者从位级的角度来看是相同的。这是因为对位级而言，两者都是相加后截取w位的结果。</p>
+<p>如果x&gt;0，y&gt;0，但补码加法后<0，则发生了正溢出，如果x<0，y<0，但补码加法后>0，则发生了负溢出。</0，则发生了正溢出，如果x<0，y<0，但补码加法后></p>
+<h4 id="2-3-3-补码的非"><a href="#2-3-3-补码的非" class="headerlink" title="2.3.3 补码的非"></a>2.3.3 补码的非</h4><p>对于$TMin_w \leq x \leq TMax_w$中的数字x，其在补码加法下的加法逆元，一般为-x，但是注意到$-TMin_w = TMax_w + 1$，这时我们从定义出发，$TMin_w$的加法逆元就是其本身。</p>
+<h4 id="2-3-4-无符号乘法"><a href="#2-3-4-无符号乘法" class="headerlink" title="2.3.4 无符号乘法"></a>2.3.4 无符号乘法</h4><p>无符号乘法从位级上来看，仍和之前的加法类似，直接相乘的基础上截取低w位。</p>
+<blockquote>
+<p>无符号数乘法<br>对满足$0 \leq x, y \leq UMax_w$的x和y有：<br>$$x *^u_w y = (x \cdot y) mod 2^w$$</p>
+</blockquote>
+<h4 id="2-3-5-补码乘法"><a href="#2-3-5-补码乘法" class="headerlink" title="2.3.5 补码乘法"></a>2.3.5 补码乘法</h4><p>无论是无符号乘法还是补码乘法，它们的位级表示是一样的，</p>
+<blockquote>
+<p>补码乘法<br>对满足$Tmin_w \leq x, y \leq TMax_w$的x和y有：<br>$$x *^t_w y = U2T_w((x \cdot y)mod 2^w)$$</p>
+</blockquote>
+<h4 id="2-3-6-乘以常数"><a href="#2-3-6-乘以常数" class="headerlink" title="2.3.6 乘以常数"></a>2.3.6 乘以常数</h4><p>整数乘法指令相比于其他整数运算慢得多，故编译器会尝试用位移和加法运算代替乘以常数的运算。<br>通过位移运算，能够迅速计算乘以2的幂的结果，那么将要乘的数分解为2的幂的和，再通过乘法分配律，就能用位移运算和加法运算表示乘以任意一个常数的运算了。</p>
+<h4 id="2-3-7-除以2的幂"><a href="#2-3-7-除以2的幂" class="headerlink" title="2.3.7 除以2的幂"></a>2.3.7 除以2的幂</h4><p>整数除法比整数乘法更慢。<br>除以2的幂也可以用位移运算实现。<br>无符号除法使用的是逻辑右移。<br>补码除法，使用算数右移，效果为向下舍入。这种舍入，在为负数时，就造成了右移和除以2的幂结果不相等的情况。为了解决这个问题，可以通过移位前<strong>偏置</strong>这个值来修正。具体的做法也很简单，假设除以的时2的k次幂，那么在右移前先给原数加上(1&lt;&lt;k)-1。</p>
+<h3 id="2-4-浮点数"><a href="#2-4-浮点数" class="headerlink" title="2.4 浮点数"></a>2.4 浮点数</h3><p>目前，所有计算机都支持<strong>IEEE浮点</strong>为标准。</p>
+<h4 id="2-4-1-二进制小数"><a href="#2-4-1-二进制小数" class="headerlink" title="2.4.1 二进制小数"></a>2.4.1 二进制小数</h4><p>二进制小数的概念类比于十进制小数。<br>形如$b_mb_{m-1} \ldots b_1b_0 \ldotp b_{-1}b_{-2} \ldots b_{-n-1}b_{-n}$这样的二进制小数，表示的数b<br>$$b = \sum^m_{i=-n}2^i \times b_i$$</p>
+<h4 id="2-4-2-IEEE浮点表示"><a href="#2-4-2-IEEE浮点表示" class="headerlink" title="2.4.2 IEEE浮点表示"></a>2.4.2 IEEE浮点表示</h4><p>IEEE浮点标准用$V = (-1)^s \times M \times 2^E$表示一个数：</p>
+<ul>
+<li>符号 s的取值（0或者1）决定了这个数的正负</li>
+<li>尾数 M是一个二进制小数</li>
+<li>阶码 E是一个权值</li>
+</ul>
+<p>这种表示方法其实类似于科学记数法，当然限于存储的位数和表示的本身，浮点数的精度是有限的，正如1/3也不可能用科学计数法精确表示。</p>
+<p>当把这种标准具体到实际，情况要稍微复杂一些。<br>浮点数的位划分为三个字段：</p>
+<ul>
+<li>符号位s编码为符号s（直接编码）</li>
+<li>k位的阶码字段exp编码为阶码E</li>
+<li>n位小数字段frac编码位尾数M</li>
+</ul>
+<p>根据exp的值，exp和frac的编码方式是不同的，这要划分为三种不同的情况：</p>
+<ul>
+<li><p>规格化的值<br>当exp的位模式既不全是0，也不全是1，就是这种情况。<br>此时，阶码E=e-Bias，其中e是一个无符号数，其位模式就是exp，Bias是$2^{k-1}-1$；尾数M=1+f，其中f的位模式是0.frac（就是在frac的位模式前面加上一个0和一个小数点）。</p>
+</li>
+<li><p>非规格化的值<br>当exp的位模式全为0时，表示的就是非规格化的值。<br>此时，E=1-Bias，M=f。</p>
+</li>
+<li><p>特殊值<br>当exp的位模式全为1时，就是特殊值，其实就两种，无穷大和NaN。<br>当frac全为0时，代表无穷大，否则就是NaN（不是一个数）。</p>
+</li>
+</ul>
+<h4 id="2-4-4-舍入"><a href="#2-4-4-舍入" class="headerlink" title="2.4.4 舍入"></a>2.4.4 舍入</h4><p>面对实数运算时，浮点数面临了精度问题，而舍入就是在限制条件下，找到一个最接近的匹配值。IEEE浮点格式定义了四种舍入方式。</p>
+<ul>
+<li>向偶数舍入：这种舍入方式总是舍入为最接近该数的数，例如1.4舍入为1，3.6舍入为4。当遇到中间值时，如1.5，就朝舍入后最低有效为偶数的方向舍入，如1.5舍入为2，4.5舍入为4。</li>
+<li>向零舍入：就是朝零的方向舍入，即正数向下舍入，负数向上舍入。</li>
+<li>向下舍入</li>
+<li>向上舍入</li>
+</ul>
+<p>默认采用向偶数舍入。</p>
+<h4 id="2-4-5-浮点运算"><a href="#2-4-5-浮点运算" class="headerlink" title="2.4.5 浮点运算"></a>2.4.5 浮点运算</h4><p>浮点加法具有交换性，单调性，但不具备结合性。<br>浮点乘法具有交换性，有单调性，但没有对加法的分配性。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/02/09/poj-3678-Katu-Puzzle-题解/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="LeeHolmes">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/圣诞贞德.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="学海泛舟">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/09/poj-3678-Katu-Puzzle-题解/" itemprop="url">
+                  poj 3678 Katu Puzzle 题解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-09T10:50:29+08:00">
+                2017-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM题解/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM题解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/09/poj-3678-Katu-Puzzle-题解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/09/poj-3678-Katu-Puzzle-题解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">传送门</a></p>
+<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>有一张n个点，m条边的图，每条边上有一个布尔运算符（AND，OR，XOR）和一个布尔值，问是否能在点上填入合适的布尔值，使得任意一条边所连接的两个点的布尔值经过边上的运算符运算后等于边上的布尔值。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>将每个点拆成两个点，分别代表取0和取1.<br>边连接的两个点，一共只有四种状态，即（1，0），（0，1），（0，0），（1，1）。找到不符合条件的状态，就是冲突的地方。这样就回归了2-SAT的基本模型了。</p>
+<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">5500</span>;</div><div class="line"><span class="keyword">struct</span> Edge&#123;</div><div class="line">	<span class="keyword">int</span> to,next;</div><div class="line">&#125;edge[<span class="number">6000005</span>];</div><div class="line"><span class="keyword">int</span> head[maxn],tot;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</div><div class="line">	edge[tot].to=v;</div><div class="line">	edge[tot].next=head[u];</div><div class="line">	head[u]=tot++;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> scc,Low[maxn],DFN[maxn],Stack[maxn],top,Index,Belong[maxn];</div><div class="line"><span class="keyword">bool</span> Instack[maxn];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> v;</div><div class="line">	Low[u]=DFN[u]=++Index;</div><div class="line">	Stack[top++]=u;</div><div class="line">	Instack[u]=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=edge[i].next)&#123;</div><div class="line">		v=edge[i].to;</div><div class="line">		<span class="keyword">if</span>(!DFN[v])&#123;</div><div class="line">			tarjan(v);</div><div class="line">			<span class="keyword">if</span>(Low[u]&gt;Low[v]) Low[u]=Low[v];</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(Instack[v]&amp;&amp;Low[u]&gt;DFN[v])</div><div class="line">			Low[u]=DFN[v];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(Low[u]==DFN[u])&#123;</div><div class="line">		scc++;</div><div class="line">		<span class="keyword">do</span>&#123;</div><div class="line">			v=Stack[--top];</div><div class="line">			Instack[v]=<span class="literal">false</span>;</div><div class="line">			Belong[v]=scc;</div><div class="line">		&#125; <span class="keyword">while</span>(v!=u);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> N)</span></span>&#123;</div><div class="line">	<span class="built_in">memset</span>(DFN,<span class="number">0</span>,<span class="keyword">sizeof</span> DFN);</div><div class="line">	<span class="built_in">memset</span>(Instack,<span class="literal">false</span>,<span class="keyword">sizeof</span> Instack);</div><div class="line">	Index=scc=top=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;++i)</div><div class="line">		<span class="keyword">if</span>(!DFN[i])</div><div class="line">			tarjan(i);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">	tot=<span class="number">0</span>;</div><div class="line">	<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span> head);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> N,M;</div><div class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;N,&amp;M)!=EOF)&#123;</div><div class="line">		init();</div><div class="line">		<span class="keyword">char</span> s[<span class="number">10</span>];</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;++i)&#123;</div><div class="line">			<span class="keyword">int</span> a,b,c;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d %d %d %s"</span>,&amp;a,&amp;b,&amp;c,&amp;s);</div><div class="line">			<span class="keyword">if</span>(c==<span class="number">0</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(s[<span class="number">0</span>]==<span class="string">'A'</span>)&#123;</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>);</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[<span class="number">0</span>]==<span class="string">'O'</span>)&#123;</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[<span class="number">0</span>]==<span class="string">'X'</span>)&#123;</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>);</div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="number">1</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(s[<span class="number">0</span>]==<span class="string">'A'</span>)&#123;</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[<span class="number">0</span>]==<span class="string">'O'</span>)&#123;</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[<span class="number">0</span>]==<span class="string">'X'</span>)&#123;</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">					addedge(a&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,b&lt;&lt;<span class="number">1</span>);</div><div class="line">					addedge(b&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,a&lt;&lt;<span class="number">1</span>);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		solve(<span class="number">2</span>*N);</div><div class="line">		<span class="keyword">bool</span> flag=<span class="literal">true</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>*N;i+=<span class="number">2</span>)&#123;</div><div class="line">			<span class="keyword">if</span>(Belong[i]==Belong[i^<span class="number">1</span>])&#123;</div><div class="line">				flag=<span class="literal">false</span>;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(flag) <span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</div><div class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -698,379 +1056,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/25/第2章-信息的表示和处理（一）/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LeeHolmes">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/圣诞贞德.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="学海泛舟">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/25/第2章-信息的表示和处理（一）/" itemprop="url">
-                  第2章 信息的表示和处理（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-25T11:05:54+08:00">
-                2017-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《深入了解计算机系统》读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">《深入了解计算机系统》读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/25/第2章-信息的表示和处理（一）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/25/第2章-信息的表示和处理（一）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>现代计算机存储和处理的信息都是二值信号，以特定的方式组合二值信号，就能表示有限集合的任意元素。这一章主要研究的就是计算机中的数字表示，即无符号编码、补码编码和浮点数编码。</p>
-<h3 id="2-1-信息存储"><a href="#2-1-信息存储" class="headerlink" title="2.1 信息存储"></a>2.1 信息存储</h3><p>大多数计算机用字节（8位的块）作为最小的可寻址的内存单位。<br>每个程序对象，乃至程序本身都是一个字节序列</p>
-<h4 id="2-1-1-十六进制表示法"><a href="#2-1-1-十六进制表示法" class="headerlink" title="2.1.1 十六进制表示法"></a>2.1.1 十六进制表示法</h4><p>对于描述位模式而言，常用十六进制来取代过于冗长的二进制表示法，在十六进制下，一个字节的值域为 $00_{16}$ ~ $FF_{16}$ </p>
-<h4 id="2-1-2-字数据大小"><a href="#2-1-2-字数据大小" class="headerlink" title="2.1.2 字数据大小"></a>2.1.2 字数据大小</h4><p>字长，指明了指针数据的标称大小，决定了虚拟地址空间的大小。<br>对于字长为$w$位的机器而言，虚拟地址的范围为0 ~ $2^w-1$，最多访问$2^w$歌字节。</p>
-<h4 id="2-1-3-寻址和字节顺序"><a href="#2-1-3-寻址和字节顺序" class="headerlink" title="2.1.3 寻址和字节顺序"></a>2.1.3 寻址和字节顺序</h4><p>对象的地址位为所使用字节中最小的地址。<br>排列表示一个对象的字节有两个通用的规则，即小端法和大端法。</p>
-<ul>
-<li>小端法：最低有效字节在最前面</li>
-<li>大端法：最高有效字节在最前面<br>举个例子，假设int x=0x01234567，位于地址0x100处</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>地址</th>
-<th>0x100</th>
-<th>0x101</th>
-<th>0x102</th>
-<th>0x103</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>大端法</td>
-<td>01</td>
-<td>23</td>
-<td>45</td>
-<td>67</td>
-</tr>
-<tr>
-<td>小端法</td>
-<td>67</td>
-<td>45</td>
-<td>23</td>
-<td>01</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2-1-4-表示字符串"><a href="#2-1-4-表示字符串" class="headerlink" title="2.1.4 表示字符串"></a>2.1.4 表示字符串</h4><p>C语言中，字符串被编码为一个以null字符结尾的字符数组。</p>
-<h4 id="2-1-5-表示代码"><a href="#2-1-5-表示代码" class="headerlink" title="2.1.5 表示代码"></a>2.1.5 表示代码</h4><p>不同机器类型使用不同且不兼容的指令和编码方式，故二进制代码不兼容。</p>
-<h4 id="2-1-6-布尔代数简介"><a href="#2-1-6-布尔代数简介" class="headerlink" title="2.1.6 布尔代数简介"></a>2.1.6 布尔代数简介</h4><p>位向量可以很好的表示有限集合。将所有元素有序排列后，任意由这些元素组成的集合，均可用位向量表示，0代表不具有该元素，1代表具有该元素。而在这样的表示方法中布尔代数可以方便地处理集合运算，|对应集合的并，&amp;对应集合的交，~对应集合的补集。</p>
-<h4 id="2-1-7-C语言中的位级运算"><a href="#2-1-7-C语言中的位级运算" class="headerlink" title="2.1.7 C语言中的位级运算"></a>2.1.7 C语言中的位级运算</h4><p>C语言支持按位布尔运算。</p>
-<h4 id="2-1-8-C语言中的逻辑运算"><a href="#2-1-8-C语言中的逻辑运算" class="headerlink" title="2.1.8 C语言中的逻辑运算"></a>2.1.8 C语言中的逻辑运算</h4><p>只需注意一下C语言中逻辑运算具有短路效应，也就是说对于&amp;&amp;和||，如果第一个参数求值就能确定表达式的结果，那么第二个表达式就不会计算。</p>
-<p>2.1.9 C语言中的移位运算</p>
-<ul>
-<li>左移运算：操作符&lt;&lt;，例如x&lt;&lt;k，代表x向左移动k位，丢弃最高的k位，并在右端补k个0。</li>
-<li>右移运算：操作符&lt;&lt;，例如x&lt;&lt;k，代表x向右移动k位。但是右移一般右两种：逻辑右移和算数右移。逻辑右移是在左边补k个0，算数右移是在左端补k个最高有效位。<br>几乎所有编译器对有符号数使用算数右移，对无符号数，右移是逻辑的。</li>
-</ul>
-<h3 id="2-2-整数表示"><a href="#2-2-整数表示" class="headerlink" title="2.2 整数表示"></a>2.2 整数表示</h3><p>本节介绍用位编码整数的两种方式</p>
-<h4 id="2-2-1-整数数据类型"><a href="#2-2-1-整数数据类型" class="headerlink" title="2.2.1 整数数据类型"></a>2.2.1 整数数据类型</h4><p>C语言标准定义了每种数据类型必须能够表示的最小的取值范围。但是通常实际会比标准大上一些</p>
-<h4 id="2-2-2-无符号数的编码"><a href="#2-2-2-无符号数的编码" class="headerlink" title="2.2.2 无符号数的编码"></a>2.2.2 无符号数的编码</h4><p>对于一个$w$位的整数数据类型，不妨将其看作一个位向量$\vec x = [x_{w-1} , x_{w-2} , \cdots , x_0]$。将其视为一个二进制数就得到了无符号表示。<br>定义一个函数$B2U_w$（Binary to Unsigned，长度为w），用来表示由二进制转化为无符号数。</p>
-<blockquote>
-<p>无符号数编码的定义<br>对向量$\vec x = [x_{w-1} , x_{w-2} , \cdots , x_0]$<br>$$B2U_w(\vec x) \doteq \sum_{i=0}^{w-1}x_i2^i$$</p>
-</blockquote>
-<h4 id="2-2-3-补码编码"><a href="#2-2-3-补码编码" class="headerlink" title="2.2.3 补码编码"></a>2.2.3 补码编码</h4><p>在补码的定义中将最高有效位解释为负权。<br>定义函数$B2T_w$（Binary to Two’s-complement，长度为w），用来表示二进制转补码。</p>
-<blockquote>
-<p>补码编码的定义<br>对向量$\vec x = [x_{w-1} , x_{w-2} , \cdots , x_0]$<br>$$B2T_w(\vec x) \doteq -x_{w-1} 2^{w-1} + \sum_{i=0}^{w-2}x_i2^i$$</p>
-</blockquote>
-<p>最高有效位$x_{w-1}$也被成为符号位，为1时，表示值为负，为0时，表示值为非负。</p>
-<h4 id="2-2-4-有符号数和无符号数之间的转换"><a href="#2-2-4-有符号数和无符号数之间的转换" class="headerlink" title="2.2.4 有符号数和无符号数之间的转换"></a>2.2.4 有符号数和无符号数之间的转换</h4><p>C语言中，强制类型转换保持位值不变，只改变解释这些位的方式。</p>
-<blockquote>
-<p>补码转换为无符号数<br>对满足$TMin_w \leq x \leq TMax_w$的x有：<br>$$T2U_w(x) = \begin{cases}x + 2^w, &amp; x &lt; 0 \\ x, &amp; x \geq 0 \end{cases}$$</p>
-</blockquote>
-<p>比较粗略地说，将一个有符号数映射为相应地无符号数时，非负数保持不变，负数被转换为大正数。</p>
-<p>同样的，考虑无符号数转换为补码</p>
-<blockquote>
-<p>无符号数转换为补码<br>对满足$0 \leq u \leq UMax_w$的u有：<br>$$U2T_w(u) = \begin{cases}u, &amp; u \leq TMax_w \\ u-2^w, &amp; u &gt; TMax_w \end{cases}$$</p>
-</blockquote>
-<p>将一个无符号数映射为相应的有符号数，比较小的数保持不变，比较大的数变成负数。</p>
-<h4 id="2-2-5-C语言中的有符号数和无符号数"><a href="#2-2-5-C语言中的有符号数和无符号数" class="headerlink" title="2.2.5 C语言中的有符号数和无符号数"></a>2.2.5 C语言中的有符号数和无符号数</h4><p>C语言中，当执行运算时，一个运算数为有符号，另一个为无符号，C语言会隐式地将有符号数转换为无符号数。</p>
-<h4 id="2-2-6-扩展一个数字的位表示"><a href="#2-2-6-扩展一个数字的位表示" class="headerlink" title="2.2.6 扩展一个数字的位表示"></a>2.2.6 扩展一个数字的位表示</h4><p>无符号数的零扩展：只要将高位用0填充即可。<br>补码数的符号扩展：只要将高位用符号位填充即可。</p>
-<h4 id="2-2-7-截断数字"><a href="#2-2-7-截断数字" class="headerlink" title="2.2.7 截断数字"></a>2.2.7 截断数字</h4><p>截断一个数字，会直接丢弃高位，所以很可能会改变原来的值。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/01/22/hihoCoder-1467-2-SAT·hihoCoder音乐节-题解/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LeeHolmes">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/圣诞贞德.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="学海泛舟">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/22/hihoCoder-1467-2-SAT·hihoCoder音乐节-题解/" itemprop="url">
-                  hihoCoder 1467 2-SAT·hihoCoder音乐节 题解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-22T14:21:28+08:00">
-                2017-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM题解/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM题解</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/22/hihoCoder-1467-2-SAT·hihoCoder音乐节-题解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/22/hihoCoder-1467-2-SAT·hihoCoder音乐节-题解/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://hihocoder.com/problemset/problem/1467" target="_blank" rel="external">传送门</a></p>
-<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>有n首歌可以在上午放或下午放，但只能放一次，每个评委有两个要求，满足其中任意一个，评委就会满意，问能否使所有评委都满意。</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>因为只要满足任意一个要求，就能满足，所以这两个要求之间的关系为OR。又因为每个评委都要满意，所以评委之间的关系为AND，问题就转为是否能让表达式为真。不妨将歌在上午放记为x，将歌在下午放记为~x，这样表达式就能写出了。接下考虑如何寻找表达式的解。<br>可以将这个问题转化为一个图论的问题。a OR b可以转变为~a-&gt;b AND ~b-&gt;a，将每首歌拆成两个点，一个代表a，另一个代表~a，根据关系连有向边。例如上面的例子，应该从~a连向b，和从~b连向a，这样就构成了一张有向图。只要任意一个点拆出的两个点都不在同一个联通块中，就代表能使所有评委满意。</p>
-<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">struct</span> Edge&#123;</div><div class="line">	<span class="keyword">int</span> to,next;</div><div class="line">&#125;edge[<span class="number">5000</span>];</div><div class="line"><span class="keyword">int</span> head[<span class="number">500</span>];</div><div class="line"><span class="keyword">int</span> tot;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</div><div class="line">	edge[tot].to=v;</div><div class="line">	edge[tot].next=head[u];</div><div class="line">	head[u]=tot++;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">	tot=<span class="number">0</span>;</div><div class="line">	<span class="built_in">memset</span>(head,<span class="number">0xff</span>,<span class="keyword">sizeof</span> head);</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> Low[<span class="number">500</span>],DFN[<span class="number">500</span>],Stack[<span class="number">500</span>],Belong[<span class="number">500</span>];</div><div class="line"><span class="keyword">int</span> Index,top;</div><div class="line"><span class="keyword">int</span> scc;</div><div class="line"><span class="keyword">bool</span> Instack[<span class="number">500</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Tarjan</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> v;</div><div class="line">	Low[u]=DFN[u]=++Index;</div><div class="line">	Stack[top++]=u;</div><div class="line">	Instack[u]=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=edge[i].next)&#123;</div><div class="line">		v=edge[i].to;</div><div class="line">		<span class="keyword">if</span>(!DFN[v])&#123;</div><div class="line">			Tarjan(v);</div><div class="line">			<span class="keyword">if</span>(Low[u]&gt;Low[v]) Low[u]=Low[v];</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(Instack[v]&amp;&amp;Low[u]&gt;DFN[v])</div><div class="line">			Low[u]=DFN[v];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(Low[u]==DFN[u])&#123;</div><div class="line">		scc++;</div><div class="line">		<span class="keyword">do</span>&#123;</div><div class="line">			v=Stack[--top];</div><div class="line">			Instack[v]=<span class="literal">false</span>;</div><div class="line">			Belong[v]=scc;</div><div class="line">		&#125;<span class="keyword">while</span>(v!=u);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> N)</span></span>&#123;</div><div class="line">	<span class="built_in">memset</span>(DFN,<span class="number">0</span>,<span class="keyword">sizeof</span> DFN);</div><div class="line">	<span class="built_in">memset</span>(Instack,<span class="literal">false</span>,<span class="keyword">sizeof</span> Instack);</div><div class="line">	Index=scc=top=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;++i)&#123;</div><div class="line">		<span class="keyword">if</span>(!DFN[i])</div><div class="line">			Tarjan(i);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> k;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</div><div class="line">	<span class="keyword">while</span>(k--)&#123;</div><div class="line">		<span class="keyword">int</span> n,m;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</div><div class="line">		<span class="keyword">char</span> a[<span class="number">10</span>],b[<span class="number">10</span>];</div><div class="line">		init();</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;++j)&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%s %s"</span>,a,b);</div><div class="line">			<span class="keyword">int</span> u=<span class="number">0</span>,v=<span class="number">0</span>;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="built_in">strlen</span>(a);++i)&#123;</div><div class="line">				u=u*<span class="number">10</span>+a[i]-<span class="string">'0'</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(a[<span class="number">0</span>]==<span class="string">'m'</span>)&#123;</div><div class="line">				u=<span class="number">2</span>*(u<span class="number">-1</span>);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				u=<span class="number">2</span>*(u<span class="number">-1</span>)+<span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="built_in">strlen</span>(b);++i)&#123;</div><div class="line">				v=v*<span class="number">10</span>+b[i]-<span class="string">'0'</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(b[<span class="number">0</span>]==<span class="string">'m'</span>)&#123;</div><div class="line">				v=<span class="number">2</span>*(v<span class="number">-1</span>);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				v=<span class="number">2</span>*(v<span class="number">-1</span>)+<span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">			addedge((u^<span class="number">1</span>),v);</div><div class="line">			addedge((v^<span class="number">1</span>),u);</div><div class="line">		&#125;</div><div class="line">		solve(<span class="number">2</span>*n);</div><div class="line">		<span class="keyword">bool</span> flag=<span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</div><div class="line">			<span class="keyword">if</span>(Belong[<span class="number">2</span>*i]==Belong[<span class="number">2</span>*i+<span class="number">1</span>])&#123;</div><div class="line">				flag=<span class="number">0</span>;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(flag)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"GOOD\n"</span>);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"BAD\n"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1118,7 +1103,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1127,7 +1112,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1136,7 +1121,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
