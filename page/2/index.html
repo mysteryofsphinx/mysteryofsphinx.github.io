@@ -248,6 +248,172 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/03/29/第2章-变量和基本类型/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="LeeHolmes">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/圣诞贞德.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="学海泛舟">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/29/第2章-变量和基本类型/" itemprop="url">
+                  第2章 变量和基本类型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-29T16:04:44+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《C-Prime》读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">《C++ Prime》读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/29/第2章-变量和基本类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/29/第2章-变量和基本类型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>数据类型是程序的基础，本章主要介绍了内置类型，并且初步提起了一些自定义数据结构的相关内容。</p>
+<h3 id="基本内置类型"><a href="#基本内置类型" class="headerlink" title="基本内置类型"></a>基本内置类型</h3><p>基本数据类型主要包括算数类型和空类型。<br>除开布尔类型和扩展的字符型，其他整型都分为带符号类型和无符号类型。<br>一般而言，将数据范围小的转化为数据类型大的不存在什么大问题，但是反之，常常会带来精度的丢失。同时，切记不要混用有符号类型和无符号类型，这常常会带来意想不到的错误。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量中需要着重区分初始化和赋值。初始化死在创建变量时赋予一个初始值，而赋值是用一个新值覆盖原来的值。<br>变量声明和定义也是一组要区分的概念，由于这两个常常同时发生，故具有一定的迷惑性。记住变量只能被定义一次，但能被多次声明。想要将声明和定义分开，就需要用到extren关键字。举一个例子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a; <span class="comment">//声明a，但是没有定义</span></div><div class="line"><span class="keyword">int</span> b; <span class="comment">//声明并定义b</span></div></pre></td></tr></table></figure></p>
+<h3 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h3><p>复合数据类型是指基于其他类型定义的类型，这里主要讲了两种：引用和指针。<br>引用相当于为已用的一个对象起了一个别名，它本身并不是一个对象，为此，引用只能绑定在对象，而不能与字面值或表达式的计算结果绑定。同时，这也决定了引用必须被初始化。<br>指针和引用有很多不同点。一是指针本身就是一个对象，二是指针无需在定义时赋值。<br>复合类型的复杂之处在于，它们是可以进行嵌套的。无论是指向指针的指针，还是指向指针的引用，都是具有相当的复杂度的。遇到这种情况，从右向左阅读，对理解有一定的帮助。<br>例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p;</div><div class="line"><span class="keyword">int</span> *&amp;r = p; <span class="comment">//r是一个对指针p的引用</span></div></pre></td></tr></table></figure></p>
+<h3 id="const限定符"><a href="#const限定符" class="headerlink" title="const限定符"></a>const限定符</h3><p>const对象不能执行改变其内容的操作。<br>对常量的引用不能修改它所绑定的对象。同时非常量引用不能指向一个常量对象，但是常量引用能绑定到非常量对象。例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">1024</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r1 = a; <span class="comment">//正确</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r2 = <span class="number">1024</span>;<span class="comment">//正确</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r3 = r1 * <span class="number">2</span>;<span class="comment">//正确</span></div><div class="line"><span class="keyword">int</span> &amp;r4 = a;<span class="comment">//错误，非常量引用不能指向常量对象</span></div><div class="line"><span class="keyword">int</span> &amp;r5 = r1 * <span class="number">2</span>;<span class="comment">//错误</span></div></pre></td></tr></table></figure></p>
+<p>注意到，常量引用能绑定到非常量对象，虽然不能通过常量引用修改值，但非常量对象本身的值可以轻易改变。</p>
+<p>指针和const的关系要相对复杂一些，因为指针本身是一个对象，又指向了一个对象。<br>顶层const表示指针本身是个常量，底层const表示指针所指的对象是个常量。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> *<span class="keyword">const</span> p1=&amp;i;<span class="comment">//顶层const</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci=<span class="number">42</span>;<span class="comment">//顶层const</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p2=&amp;ci;<span class="comment">//底层const</span></div></pre></td></tr></table></figure></p>
+<p>执行对象的拷贝时，顶层const还是底层const有明显的区别。<br>顶层const不受影响，拷入和拷出的对象是否是常量没有影响。<br>但底层const则有限制，拷入和拷出的对象必须具有相同的底层const资格，或者两个对象的数据类型必须能够转换。（一般是非常量转换为常量）</p>
+<h3 id="constexpr和常量表达式"><a href="#constexpr和常量表达式" class="headerlink" title="constexpr和常量表达式"></a>constexpr和常量表达式</h3><p>常量表达式是指值不会改变并且在编译过程就能得到计算结果的表达式。<br>使用constexpr将变量声明为常量表达式，就可以由编译器验证变量的值是否为一个常量表达式了。<br>constexpr把它所定义的对象置为顶层const。</p>
+<h3 id="类型处理"><a href="#类型处理" class="headerlink" title="类型处理"></a>类型处理</h3><p>类型处理的难度来自于两个方面，这两者都是由于程序的膨胀造成的。一是类型的名字的难记，二是弄不清所需的类型。</p>
+<p>类型别名可以使用传统的typedef，或者使用新的别名声明；<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> LL = <span class="keyword">long</span> <span class="keyword">long</span>;</div></pre></td></tr></table></figure></p>
+<p>但是类型别名如果指代复合类型或者常量，就常常容易出错。</p>
+<p>将变量声明为auto可以让编译器去分析表达式所属类型，显然，auto定义的变量必须有初始值。<br>在涉及到复合类型和常量时，auto有几点要特别注意。<br>1、编译器以引用类型作为auto的类型；<br>2、auto一般会忽略顶层const；</p>
+<p>decltype的作用时选择并返回操作数的数据类型；<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">decltype</span>(f()) a = x;</div></pre></td></tr></table></figure></p>
+<p>decltype和auto不同的是，decltype返回该类型的类型，包括顶层const和引用。decltype的结果和表达的形式也是密切相关的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i=<span class="number">1</span>, *p=&amp;i;</div><div class="line"><span class="keyword">decltype</span>(*p) a = <span class="number">1</span>;<span class="comment">//a的类型为int&amp;</span></div><div class="line"><span class="keyword">decltype</span>((i)) b = <span class="number">1</span>;<span class="comment">//b的类型为int&amp;</span></div></pre></td></tr></table></figure></p>
+<p>decltype((variable))的结果永远是引用。<br>decltype处理的是一个解引用，得到的永远是引用。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/03/26/第1章-开始/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -905,159 +1071,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LeeHolmes">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/圣诞贞德.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="学海泛舟">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/" itemprop="url">
-                  poj 3207 Ikki's Story IV - Panda's Trick 题解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T16:21:27+08:00">
-                2017-02-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM题解/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM题解</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/poj-3207-Ikki-s-Story-IV-Panda-s-Trick-题解/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">传送门</a></p>
-<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>圆上有n个点，连接其中m对点，可以选择在圆外或圆内连线，问能否使所有的连线都不相交。</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>注意到连线只有两种状态，在圆外连或者在圆内连，就很容易联想到2-SAT。<br>将每一条连线都看作两个点，分别代表连线处于圆内和连线处于圆外。<br>对于有可能相交的连线，就当作一种约束条件。<br>当然要注意这里是无向边。</p>
-<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">5500</span>;</div><div class="line"><span class="keyword">struct</span> Edge&#123;</div><div class="line">	<span class="keyword">int</span> to,next;</div><div class="line">&#125;edge[<span class="number">500</span>*<span class="number">500</span>+<span class="number">100</span>];</div><div class="line"><span class="keyword">int</span> head[maxn],tot;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</div><div class="line">	edge[tot].to=v;</div><div class="line">	edge[tot].next=head[u];</div><div class="line">	head[u]=tot++;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> scc,Low[maxn],DFN[maxn],Stack[maxn],top,Index,Belong[maxn];</div><div class="line"><span class="keyword">bool</span> Instack[maxn];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> v;</div><div class="line">	Low[u]=DFN[u]=++Index;</div><div class="line">	Stack[top++]=u;</div><div class="line">	Instack[u]=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=edge[i].next)&#123;</div><div class="line">		v=edge[i].to;</div><div class="line">		<span class="keyword">if</span>(!DFN[v])&#123;</div><div class="line">			tarjan(v);</div><div class="line">			<span class="keyword">if</span>(Low[u]&gt;Low[v]) Low[u]=Low[v];</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(Instack[v]&amp;&amp;Low[u]&gt;DFN[v])</div><div class="line">			Low[u]=DFN[v];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(Low[u]==DFN[u])&#123;</div><div class="line">		scc++;</div><div class="line">		<span class="keyword">do</span>&#123;</div><div class="line">			v=Stack[--top];</div><div class="line">			Instack[v]=<span class="literal">false</span>;</div><div class="line">			Belong[v]=scc;</div><div class="line">		&#125; <span class="keyword">while</span>(v!=u);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> N)</span></span>&#123;</div><div class="line">	<span class="built_in">memset</span>(DFN,<span class="number">0</span>,<span class="keyword">sizeof</span> DFN);</div><div class="line">	<span class="built_in">memset</span>(Instack,<span class="literal">false</span>,<span class="keyword">sizeof</span> Instack);</div><div class="line">	Index=scc=top=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;++i)</div><div class="line">		<span class="keyword">if</span>(!DFN[i])</div><div class="line">			tarjan(i);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">	tot=<span class="number">0</span>;</div><div class="line">	<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span> head);</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> a[<span class="number">2010</span>],b[<span class="number">2010</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n,m;</div><div class="line">	init();</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;++i)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,a+i,b+i);</div><div class="line">		<span class="keyword">if</span>(a[i]&gt;b[i]) swap(a[i],b[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;++i)</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;m;++j)</div><div class="line">			<span class="keyword">if</span>((a[i]&lt;=a[j]&amp;&amp;b[i]&gt;=a[j]&amp;&amp;b[i]&lt;=b[j])||(a[i]&gt;=a[j]&amp;&amp;a[i]&lt;=b[j]&amp;&amp;b[i]&gt;=b[j]))&#123;</div><div class="line">				addedge(i&lt;&lt;<span class="number">1</span>,j&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">				addedge(j&lt;&lt;<span class="number">1</span>,i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">				addedge(i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,j&lt;&lt;<span class="number">1</span>);</div><div class="line">				addedge(j&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,i&lt;&lt;<span class="number">1</span>);</div><div class="line">			&#125;</div><div class="line">	solve(<span class="number">2</span>*m);</div><div class="line">	<span class="keyword">bool</span> flag=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>*m;i+=<span class="number">2</span>)&#123;</div><div class="line">		<span class="keyword">if</span>(Belong[i]==Belong[i^<span class="number">1</span>])&#123;</div><div class="line">			flag=<span class="literal">false</span>;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(flag) <span class="built_in">printf</span>(<span class="string">"panda is telling the truth...\n"</span>);</div><div class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"the evil panda is lying again\n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1105,7 +1118,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1114,7 +1127,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1123,7 +1136,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
