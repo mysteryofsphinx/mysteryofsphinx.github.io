@@ -248,6 +248,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/12/25/python-numpy及其他的初探-md/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="LeeHolmes">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/圣诞贞德.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="学海泛舟">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/25/python-numpy及其他的初探-md/" itemprop="url">
+                  python numpy及其他的初探.md
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T21:04:18+08:00">
+                2017-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/25/python-numpy及其他的初探-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/25/python-numpy及其他的初探-md/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章主要是简单介绍一下python numpy的基本操作和与numpy相关的一些科学计算方面的东西。</p>
+<p>#numpy</p>
+<p>numpy相较于python的原生数组，有两个主要的优势，一是numpy的数组运算是经过优化的，其运算速度是远远快于原生数组的，二是很多数组相关的操作用numpy要比原生数组要简洁。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="comment">#创建一个数组</span></div><div class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</div><div class="line"><span class="comment">#取数组中的元素</span></div><div class="line">print(a[<span class="number">0</span>, <span class="number">1</span>])</div><div class="line"><span class="comment">#切片操作</span></div><div class="line">b = a[:<span class="number">2</span>, <span class="number">1</span>:<span class="number">3</span>]</div><div class="line">print(b)</div><div class="line"><span class="comment">#以c中元素作为下标取a中的元素</span></div><div class="line">c = np.array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>])</div><div class="line">print(a[np.arange(<span class="number">3</span>), c])</div><div class="line"><span class="comment">#矩阵乘法</span></div><div class="line">v = np.array([<span class="number">9</span>,<span class="number">10</span>])</div><div class="line">w = np.array([<span class="number">11</span>, <span class="number">12</span>])</div><div class="line"></div><div class="line"><span class="keyword">print</span> (v.dot(w))</div><div class="line"><span class="keyword">print</span> (np.dot(v, w))</div><div class="line"><span class="comment">#转置</span></div><div class="line">print(v.T)</div><div class="line"></div><div class="line"><span class="comment">#广播</span></div><div class="line">x = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>]])</div><div class="line">v = np.array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>])</div><div class="line">y = x + v</div><div class="line">print(y)</div></pre></td></tr></table></figure>
+<p>numpy中的广播是一个十分重要的概念。</p>
+<p>首先，不是所有函数都支持广播机制的，只有<strong>全局函数</strong>才支持广播机制的。</p>
+<p>其次，广播机制要遵守几个规则：</p>
+<ol>
+<li>如果数组的秩不同，就使用1来将秩较小的数组进行扩展，直到两者的秩相同（这里的秩指的是数组的维数）</li>
+<li>如果两个数组在某个维度上的长度相同，或者其中一个数组在维度的长度为1，那么这两个数组就是相容的。如果它们在所有维度都是相容的，那么就能使用广播机制了。</li>
+</ol>
+<h1 id="科学计算相关的其他内容"><a href="#科学计算相关的其他内容" class="headerlink" title="科学计算相关的其他内容"></a>科学计算相关的其他内容</h1><h2 id="图像操作"><a href="#图像操作" class="headerlink" title="图像操作"></a>图像操作</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> scipy.misc <span class="keyword">import</span> imread, imsave, imresize</div><div class="line">img = imread(<span class="string">'34683993_p0.jpg'</span>)</div><div class="line">print(img.dtype, img.shape)</div><div class="line">img_tinted = img * [<span class="number">1</span>, <span class="number">0.95</span>, <span class="number">0.9</span>]</div><div class="line">img_tinted = imresize(img_tinted, (<span class="number">300</span>, <span class="number">300</span>))</div><div class="line">imsave(<span class="string">'34683993_p0.jpg_tinted.jpg'</span>, img_tinted)</div></pre></td></tr></table></figure>
+<h2 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">x = np.arange(<span class="number">0</span>, <span class="number">3</span> * np.pi, <span class="number">0.1</span>)</div><div class="line">y_sin = np.sin(x)</div><div class="line">y_cos = np.cos(x)</div><div class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</div><div class="line">plt.plot(x, y_sin)</div><div class="line">plt.title(<span class="string">'Sine'</span>)</div><div class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)</div><div class="line">plt.plot(x, y_cos)</div><div class="line">plt.title(<span class="string">'Cosine'</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p>绘图相关的函数和matlab是十分相似的。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/11/29/python闭包-md/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -862,157 +1026,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/04/07/第3章-字符串、向量和数组/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LeeHolmes">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/圣诞贞德.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="学海泛舟">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/07/第3章-字符串、向量和数组/" itemprop="url">
-                  第3章 字符串、向量和数组
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-07T00:20:32+08:00">
-                2017-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/《C-Prime》读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">《C++ Prime》读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/07/第3章-字符串、向量和数组/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/07/第3章-字符串、向量和数组/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本章主要介绍了抽象数据类型库中比较重要的两种string和vector。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1060,7 +1073,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
