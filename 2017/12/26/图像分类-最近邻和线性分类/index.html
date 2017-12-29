@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="图像分类," />
 
 
 
@@ -84,31 +84,43 @@
 
 
 
-<meta name="description" content="这篇文章主要是简单了解一下python中的闭包。
+<meta name="description" content="图像分类的难点
+视角变化
+光照条件
+形变
+遮挡
+背景干扰
+类内差异
 
-闭包包含自由（未绑定到特定对象）变量；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义（局部变量）。
-​                                                                百度百科
-
-简单的说，函数可以引用自己所处作用域的自由变量，并且被引用的自由变量将">
+由于几乎不存在硬编码算法来直接识别图片内容。所以常常采用数据驱动的方式来解决问题。通过收集数据集和标签，利用机器学习的方式来训练一个分类器，利用训练所得的分类器来分类图片。
+最近邻分类器最近邻的思想非常朴素，就是拿测试集和训练集中的每幅图像进行比较，找到距离最近的，测试数据就是哪幅图像所对应的那个类。由此又衍生出找最近的k幅图像">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python闭包.md">
-<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/11/29/python闭包-md/index.html">
+<meta property="og:title" content="图像分类-最近邻和线性分类">
+<meta property="og:url" content="http://mysteryofsphinx.github.io/2017/12/26/图像分类-最近邻和线性分类/index.html">
 <meta property="og:site_name" content="学海泛舟">
-<meta property="og:description" content="这篇文章主要是简单了解一下python中的闭包。
+<meta property="og:description" content="图像分类的难点
+视角变化
+光照条件
+形变
+遮挡
+背景干扰
+类内差异
 
-闭包包含自由（未绑定到特定对象）变量；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义（局部变量）。
-​                                                                百度百科
-
-简单的说，函数可以引用自己所处作用域的自由变量，并且被引用的自由变量将">
-<meta property="og:updated_time" content="2017-11-29T16:24:35.567Z">
+由于几乎不存在硬编码算法来直接识别图片内容。所以常常采用数据驱动的方式来解决问题。通过收集数据集和标签，利用机器学习的方式来训练一个分类器，利用训练所得的分类器来分类图片。
+最近邻分类器最近邻的思想非常朴素，就是拿测试集和训练集中的每幅图像进行比较，找到距离最近的，测试数据就是哪幅图像所对应的那个类。由此又衍生出找最近的k幅图像">
+<meta property="og:updated_time" content="2017-12-29T06:32:59.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python闭包.md">
-<meta name="twitter:description" content="这篇文章主要是简单了解一下python中的闭包。
+<meta name="twitter:title" content="图像分类-最近邻和线性分类">
+<meta name="twitter:description" content="图像分类的难点
+视角变化
+光照条件
+形变
+遮挡
+背景干扰
+类内差异
 
-闭包包含自由（未绑定到特定对象）变量；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义（局部变量）。
-​                                                                百度百科
-
-简单的说，函数可以引用自己所处作用域的自由变量，并且被引用的自由变量将">
+由于几乎不存在硬编码算法来直接识别图片内容。所以常常采用数据驱动的方式来解决问题。通过收集数据集和标签，利用机器学习的方式来训练一个分类器，利用训练所得的分类器来分类图片。
+最近邻分类器最近邻的思想非常朴素，就是拿测试集和训练集中的每幅图像进行比较，找到距离最近的，测试数据就是哪幅图像所对应的那个类。由此又衍生出找最近的k幅图像">
 
 
 
@@ -136,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/11/29/python闭包-md/"/>
+  <link rel="canonical" href="http://mysteryofsphinx.github.io/2017/12/26/图像分类-最近邻和线性分类/"/>
 
 
 
 
 
-  <title> python闭包.md | 学海泛舟 </title>
+  <title> 图像分类-最近邻和线性分类 | 学海泛舟 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/11/29/python闭包-md/">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/12/26/图像分类-最近邻和线性分类/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="LeeHolmes">
@@ -289,7 +301,7 @@
             
             
               
-                python闭包.md
+                图像分类-最近邻和线性分类
               
             
           </h1>
@@ -304,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-29T11:40:15+08:00">
-                2017-11-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-26T21:41:49+08:00">
+                2017-12-26
               </time>
             
 
@@ -327,8 +339,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/图像分类/" itemprop="url" rel="index">
+                    <span itemprop="name">图像分类</span>
                   </a>
                 </span>
 
@@ -345,8 +357,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/29/python闭包-md/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/29/python闭包-md/" itemprop="commentCount"></span>
+                <a href="/2017/12/26/图像分类-最近邻和线性分类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/26/图像分类-最近邻和线性分类/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -372,18 +384,28 @@
       
 
       
-        <p>这篇文章主要是简单了解一下python中的闭包。</p>
-<blockquote>
-<p>闭包包含自由（未绑定到特定对象）变量；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义（局部变量）。</p>
-<p>​                                                                百度百科</p>
-</blockquote>
-<p>简单的说，函数可以引用自己所处作用域的自由变量，并且被引用的自由变量将与这个函数共同存在。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    i = <span class="string">'你好'</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">testtest</span><span class="params">(name)</span>:</span></div><div class="line">        print(i+<span class="string">','</span>+name)</div><div class="line">    <span class="keyword">return</span> testtest</div><div class="line"></div><div class="line">mytest = test()</div><div class="line">mytest(<span class="string">'小明'</span>)</div></pre></td></tr></table></figure>
-<p>其结果为 你好,小明，可以看到test中i的生命周期得到了延长。</p>
-<p>这种内部函数访问外部函数变量，就是闭包。</p>
-<p>但是在使用闭包的过程中要特别注意谨慎使用外部函数的循环变量，否则容易出现错误。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    arr = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">3</span>):</div><div class="line">        arr.append(<span class="keyword">lambda</span> x: x+i)</div><div class="line">    <span class="keyword">return</span> arr</div><div class="line"></div><div class="line">ans = test()</div><div class="line">print(ans[<span class="number">0</span>](<span class="number">1</span>))</div><div class="line">print(ans[<span class="number">1</span>](<span class="number">1</span>))</div></pre></td></tr></table></figure>
-<p>其结果均为3，这是因为函数没有立即执行，而是到了ans[0](1)时才调用，而这个时候i已经变成了2，所以最终这两个答案都是3。</p>
+        <h1 id="图像分类的难点"><a href="#图像分类的难点" class="headerlink" title="图像分类的难点"></a>图像分类的难点</h1><ol>
+<li>视角变化</li>
+<li>光照条件</li>
+<li>形变</li>
+<li>遮挡</li>
+<li>背景干扰</li>
+<li>类内差异</li>
+</ol>
+<p>由于几乎不存在硬编码算法来直接识别图片内容。所以常常采用数据驱动的方式来解决问题。通过收集数据集和标签，利用机器学习的方式来训练一个分类器，利用训练所得的分类器来分类图片。</p>
+<h1 id="最近邻分类器"><a href="#最近邻分类器" class="headerlink" title="最近邻分类器"></a>最近邻分类器</h1><p>最近邻的思想非常朴素，就是拿测试集和训练集中的每幅图像进行比较，找到距离最近的，测试数据就是哪幅图像所对应的那个类。由此又衍生出找最近的k幅图像的k-NN分类器。很容易发现，这个分类的效果的好坏和如何定义距离和k的选取密切相关。像这些在设计分类器就必须定好的东西，就被成为<strong>超参数</strong>。</p>
+<p>超参数的选取直接关系着算法效果的好坏，对超参数的调优是十分关键的。直接选用测试集对超参数调优，看似不错，实则是不可取的。因为这会造成算法在实际运用时的效果远远小于测试的，这种情况被称为对测试集的<strong>过拟合</strong>。超参数的选取要注意泛化性。</p>
+<p>测试数据集只使用一次，即在训练完成后评价最终的模型时使用。</p>
+<p>通常在训练集中取出一部分数据用来调优，也就是所谓的<strong>验证集</strong>。</p>
+<p>在数据集比较小的时候，也可以采用<strong>交叉验证</strong>。所谓交叉验证就是将训练集分为几份，让它们轮流充当验证集，剩下的作为训练集，对最后的结果进行平均。当然这样的缺点是时间的耗费大大增加了。</p>
+<p>最近邻分类有着明显的缺点：</p>
+<ol>
+<li>测试过程要耗费大量的时间</li>
+<li>在高维上表现不尽如人意，所以一般很少应用于图像领域</li>
+</ol>
+<h1 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h1><p>$ f(x, W) = Wx + b $ </p>
+<p>其中$W$为权重，$b$为偏差向量</p>
+<p>将数据变为一个一维列向量，通过权重和偏差，得到各个类的评估得分，以此完成分类。</p>
 
       
     </div>
@@ -407,7 +429,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/图像分类/" rel="tag"># 图像分类</a>
           
         </div>
       
@@ -416,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/06/codeforces-contest343-D-Water-Tree-题解/" rel="next" title="codeforces contest343 D Water Tree 题解">
-                <i class="fa fa-chevron-left"></i> codeforces contest343 D Water Tree 题解
+              <a href="/2017/12/25/python-numpy及其他的初探-md/" rel="next" title="python numpy及其他的初探.md">
+                <i class="fa fa-chevron-left"></i> python numpy及其他的初探.md
               </a>
             
           </div>
@@ -425,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/25/python-numpy及其他的初探-md/" rel="prev" title="python numpy及其他的初探.md">
-                python numpy及其他的初探.md <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -454,8 +472,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/11/29/python闭包-md/"
-           data-title="python闭包.md" data-url="http://mysteryofsphinx.github.io/2017/11/29/python闭包-md/">
+      <div class="ds-thread" data-thread-key="2017/12/26/图像分类-最近邻和线性分类/"
+           data-title="图像分类-最近邻和线性分类" data-url="http://mysteryofsphinx.github.io/2017/12/26/图像分类-最近邻和线性分类/">
       </div>
     
   </div>
@@ -479,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/圣诞贞德.jpg"
@@ -554,6 +581,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#图像分类的难点"><span class="nav-number">1.</span> <span class="nav-text">图像分类的难点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最近邻分类器"><span class="nav-number">2.</span> <span class="nav-text">最近邻分类器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性分类器"><span class="nav-number">3.</span> <span class="nav-text">线性分类器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

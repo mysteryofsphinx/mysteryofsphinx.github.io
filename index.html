@@ -248,6 +248,178 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/12/26/图像分类-最近邻和线性分类/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="LeeHolmes">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/圣诞贞德.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="学海泛舟">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/26/图像分类-最近邻和线性分类/" itemprop="url">
+                  图像分类-最近邻和线性分类
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-26T21:41:49+08:00">
+                2017-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/图像分类/" itemprop="url" rel="index">
+                    <span itemprop="name">图像分类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/26/图像分类-最近邻和线性分类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/26/图像分类-最近邻和线性分类/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="图像分类的难点"><a href="#图像分类的难点" class="headerlink" title="图像分类的难点"></a>图像分类的难点</h1><ol>
+<li>视角变化</li>
+<li>光照条件</li>
+<li>形变</li>
+<li>遮挡</li>
+<li>背景干扰</li>
+<li>类内差异</li>
+</ol>
+<p>由于几乎不存在硬编码算法来直接识别图片内容。所以常常采用数据驱动的方式来解决问题。通过收集数据集和标签，利用机器学习的方式来训练一个分类器，利用训练所得的分类器来分类图片。</p>
+<h1 id="最近邻分类器"><a href="#最近邻分类器" class="headerlink" title="最近邻分类器"></a>最近邻分类器</h1><p>最近邻的思想非常朴素，就是拿测试集和训练集中的每幅图像进行比较，找到距离最近的，测试数据就是哪幅图像所对应的那个类。由此又衍生出找最近的k幅图像的k-NN分类器。很容易发现，这个分类的效果的好坏和如何定义距离和k的选取密切相关。像这些在设计分类器就必须定好的东西，就被成为<strong>超参数</strong>。</p>
+<p>超参数的选取直接关系着算法效果的好坏，对超参数的调优是十分关键的。直接选用测试集对超参数调优，看似不错，实则是不可取的。因为这会造成算法在实际运用时的效果远远小于测试的，这种情况被称为对测试集的<strong>过拟合</strong>。超参数的选取要注意泛化性。</p>
+<p>测试数据集只使用一次，即在训练完成后评价最终的模型时使用。</p>
+<p>通常在训练集中取出一部分数据用来调优，也就是所谓的<strong>验证集</strong>。</p>
+<p>在数据集比较小的时候，也可以采用<strong>交叉验证</strong>。所谓交叉验证就是将训练集分为几份，让它们轮流充当验证集，剩下的作为训练集，对最后的结果进行平均。当然这样的缺点是时间的耗费大大增加了。</p>
+<p>最近邻分类有着明显的缺点：</p>
+<ol>
+<li>测试过程要耗费大量的时间</li>
+<li>在高维上表现不尽如人意，所以一般很少应用于图像领域</li>
+</ol>
+<h1 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h1><p>$ f(x, W) = Wx + b $ </p>
+<p>其中$W$为权重，$b$为偏差向量</p>
+<p>将数据变为一个一维列向量，通过权重和偏差，得到各个类的评估得分，以此完成分类。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/12/25/python-numpy及其他的初探-md/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -873,159 +1045,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://mysteryofsphinx.github.io/2017/07/23/Stanford-CS131-lecture1-4学习总结/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LeeHolmes">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/圣诞贞德.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="学海泛舟">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="学海泛舟" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/23/Stanford-CS131-lecture1-4学习总结/" itemprop="url">
-                  Stanford CS131 lecture1~4学习总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-23T12:17:34+08:00">
-                2017-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Stanford-CS131-学习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">Stanford CS131 学习记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/23/Stanford-CS131-lecture1-4学习总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/23/Stanford-CS131-lecture1-4学习总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>首先，这个课程的开始形象化的表述了什么是计算机视觉，类比于人类的视觉，计算机视觉将摄像机等电子设备当作视觉器官来获取图像，然后使用电脑代替大脑进行分析，最终达到理解图像的目的。简而言之，计算机视觉是为了连通单纯的像素和理解意义。通过计算机学习，我们希望能从图片中获得的信息主要是两点：一是三维信息，即从图片这种二维载体中，恢复物体原本的三维信息；二是语义信息。计算机视觉的应用非常广泛。</p>
-<p>接着，介绍了在计算机视觉中广泛采用的工具——线性代数和Matlab。将图像通过矩阵表示，运用矩阵的操作来操控图像完成一系列工作。矩阵的变换是其中重要的一点，例如缩放、旋转等。在实际进行计算机视觉工作时，我们经常需要进行仿射变换，为了方便进行这样的操作，引入了一个齐次坐标的概念，即将向量增加一维，并且新增的一维为1，与此同时，变换矩阵相应要增加一行，并且新增的一行，除最后一个元素为1外，其余都为0。本来平移操作是要通过矩阵的加法来完成的，但是通过增加一维后，乘法也变得可行。采用齐次坐标的方式完成仿射变换是一个常用的方式。同时还要关注矩阵的逆、矩阵的秩和矩阵的分解，如奇异值分解。奇异值分解是一种非常实用，且应用广泛的矩阵分解方式，可以用于图片的压缩。奇异值分解解决了特征值分解无法应用于非方阵的局限性，使得任何矩阵的分解成为了可能，运用主成分分析，即可完成图片的压缩。</p>
-<p>在第四课中更加明确了图片在计算机视觉中地位，即将图片看作一个离散函数，以像素位置作为自变量，将该位置的像素的属性作为因变量。透过这个角度，使得对图像的处理成为可能，如通过过滤器就可以实现图像的降噪、超分辨率、修复等工作。过滤器常见的有移动平均和图像分割。要着重关注的两个特征：线性系统和平移不变系统。此外，卷积和互相关也常用于图像处理，但是两者都有边缘效应需要注意。同时应该注意两者之间的区别，卷积是一种滤波操作，而互相关是应用于比较相似度的。卷积和相关的计算有一定的相似度，但是卷积进行操作时要首先将卷积核旋转180度，而相关计算时则不需要，所以对于对称的卷积核，卷积和相关的结果是相同的，比如高斯核。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1073,7 +1092,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1082,7 +1101,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1091,7 +1110,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
